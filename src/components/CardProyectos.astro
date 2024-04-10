@@ -1,0 +1,95 @@
+---
+interface Props {
+    titulo: string;
+    descripcion: string;
+    url: string;
+    imagenes: { base64: string; original: string };
+    tags: string[];
+}
+
+const { titulo, descripcion, imagenes, tags, url } = Astro.props;
+
+const { base64, original } = imagenes;
+---
+
+<article class=`Card`>
+    <a
+        href={`/programas-estudio/${url}`}
+        style="overflow: hidden; display: block;"
+    >
+        <img
+            class="Card__imagen"
+            data-srcx={original}
+            style={`background-image: url(${base64})`}
+            alt={`${titulo} - Enrique Calero`}
+        />
+    </a>
+    <div class="Card__Contenido">
+        <a href={`/programas-estudio/${url}`} class="Card__titulo">
+            <h3>{titulo}</h3>
+        </a>
+        <p class="Card__texto">{descripcion}</p>
+        <h3 class="Card__precio">Hecho con :</h3>
+        <ul class="Tag">
+            {
+                tags.map((tag) => {
+                    return <li class="Tag__Item smallx">{tag}</li>;
+                })
+            }
+        </ul>
+    </div>
+</article>
+
+<style lang="scss">
+    .Card {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 1rem;
+        position: relative;
+        overflow-x: hidden;
+        border-radius: 1rem;
+        background-color: #181234;
+        box-shadow: 0 2px 15px #00000026;
+        content-visibility: auto;
+
+        &__imagen {
+            aspect-ratio: 16/9;
+            transform: scale(1.05);
+            transition: transform 0.6s;
+            background-color: crimson;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        &__texto {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+        }
+    }
+
+    .Card__Contenido {
+        
+        display: flex;
+        flex-direction: column;
+        padding-inline: 1rem;
+        padding-bottom: 1rem;
+        gap: 1rem;
+    }
+
+    .Tag {
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+
+        &__Item {
+            padding: 0.5rem 1rem;
+            background-color: #0f0632;
+            border-radius: 100vh;
+        }
+    }
+</style>

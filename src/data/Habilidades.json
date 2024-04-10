@@ -1,0 +1,26 @@
+[
+    {
+        "icono": "Html",
+        "texto": "Html"
+    },
+    {
+        "icono": "Css",
+        "texto": "Css"
+    },
+    {
+        "icono": "JavaScript",
+        "texto": "JavaScript"
+    },
+    {
+        "icono": "Sass",
+        "texto": "Sass"
+    },
+    {
+        "icono": "Astro",
+        "texto": "Astro"
+    },
+    {
+        "icono": "React",
+        "texto": "React"
+    }
+]

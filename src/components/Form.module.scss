@@ -1,0 +1,122 @@
+.formulario {
+    width: min(100%, 500px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    // background-color: #232222;
+    margin-inline: auto;
+}
+
+.label {
+    width: fit-content;
+}
+
+.input,
+.textarea,
+.select {
+    padding: 1rem;
+    outline: none;
+    border-radius: 0.5rem;
+    border: 2px solid #181234;
+    background-color: #181234;
+
+
+    &::placeholder{
+        color: #948bb6;
+    }
+    &:focus {
+        border: 2px solid rgb(108, 136, 249);
+    }
+}
+
+.textarea {
+    resize: none;
+    height: 35vmin;
+}
+
+.boton {
+    border: none;
+    padding: 1rem 1.5rem;
+    margin-top: 0.5rem;
+    background-color: var(--color-Primary);
+    border-radius: 100vh;
+    color: white;
+    font-weight: 700;
+}
+
+.loader {
+    // align-self: center;
+    position: absolute;
+    background-color: transparent;
+    display: block;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 3px solid #d2d2d2;
+    border-left-color: var(--color-Primary);
+    visibility: hidden;
+
+    &.animate {
+        visibility: visible;
+        animation: loader 2s infinite linear;
+    }
+
+    @keyframes loader {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+}
+
+.checkIcon{
+    position: absolute;
+    background-color: transparent;
+    display: block;
+    width: 50px;
+    aspect-ratio: 1/1;
+    visibility: hidden;
+
+    &.iconShow {
+        visibility: visible;
+    }
+}
+
+.containerIcons{
+    position: relative;
+    width: 50px;
+    aspect-ratio: 1/1;
+    
+    
+}
+
+.modal {
+    &[open] {
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        border: none;
+        width: 25ch;
+        gap: 1rem;
+        aspect-ratio: 1/1;
+        margin: auto;
+        padding: .7rem;
+        border-radius: .7rem;
+    }
+
+    &::backdrop {
+        background-color: rgb(0 0 0 / 25%);
+    }
+}
+
+.botonClose{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}

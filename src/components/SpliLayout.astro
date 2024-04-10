@@ -1,0 +1,76 @@
+---
+type order = 'Left' | "Right"
+
+interface Props {
+    orderContainer? : order;
+}
+
+const {orderContainer = "Left"} = Astro.props;
+---
+
+<article class="Split-Container">
+    <div class:list={['contenido', {order : orderContainer === 'Right'}]}>
+        <slot />
+    </div>
+    <div class="Imagen-Container">
+        <img class="Split__Imagen" data-srcx={"feffe"} src="https://refine.ams3.cdn.digitaloceanspaces.com/blog/2023-06-12-astro-js/social.png" alt={` - Enrique Calero`} />
+    </div>
+</article>
+
+<style lang="scss">
+    .Split-Container {
+        width: min(100%, 850px);
+        margin-inline: auto;
+        display: grid;
+        justify-content: center;
+        gap: 3rem;
+        grid-template-columns: 1fr;
+        content-visibility: auto;
+        @media (width > 768px) {
+            grid-template-columns: 1fr 1fr;
+
+        }
+
+    }
+
+    .Imagen-Container{
+        width: 70%;
+        justify-self: center;
+        overflow: hidden;
+        clip-path: circle(50% at 50% 50%);
+        @media (width > 768px) {
+            width: 100%;
+
+        }
+    }
+
+    .Split__Imagen {
+        filter: saturate(0.8);
+        transition:
+            transform 0.7s,
+            filter 0.7s;
+        aspect-ratio: 1/1;
+        
+
+
+        &:hover {
+            transform: scale(1.15);
+            filter: saturate(1);
+        }
+
+        
+    }
+
+    .contenido{
+        align-content: center;
+    }
+
+    .order{
+        order: 0;
+        @media (width > 768px) {
+            order: 1;
+
+        }
+    }
+
+</style>

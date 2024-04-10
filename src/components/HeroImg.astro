@@ -1,0 +1,70 @@
+<section class="HeroImg">
+    <div class="CircleBlur--1 degradado"></div>
+    <div class="CircleBlur--2 degradado"></div>
+    <!-- <nav class="Navbar">
+        <ul>
+            <li>Conoceme</li>
+        </ul>
+    </nav> -->
+    <div class="wrapper">
+        <article class="HeroImg__Contenido">
+            <h1 class="HeroImg__titulo superTitulo">
+                Enrique <span class="HeroImg__textDegradado degradado"
+                    >Calero</span>
+            </h1>
+            <p class="HeroImg__parrafo">Diseñador y Maquetador Web</p>
+            <div class="HeroImg__panelBoton">
+                <a href="#" class="HeroImg__btnContacto boton--primary"
+                    >Contactame</a
+                >
+                <a href="#" class="HeroImg__btnCv boton--secondary"
+                    >Descargar CV</a
+                >
+            </div>
+        </article>
+    </div>
+</section>
+
+<style lang="scss">
+    .Navbar {
+        position: sticky;
+        background-color: crimson;
+    }
+
+    .HeroImg {
+        display: grid;
+        min-height: 100dvh;
+        background-color: var(--bg-color);
+        position: relative;
+        overflow: hidden;
+        padding-block: 0;
+
+        &__panelBoton {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        &__parrafo {
+            text-align: center;
+            color: #8b8ad0;
+        }
+
+        &__textDegradado {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .HeroImg__Contenido {
+        position: relative;
+        display: grid;
+        place-content: center;
+        color: white;
+        gap: 1.5rem;
+    }
+
+    
+</style>

@@ -1,0 +1,67 @@
+---
+import Layout from "../components/Layout.astro";
+import HeroImg from "../components/HeroImg.astro";
+import HabilidadesData from "../data/Habilidades.json";
+import Skills from "../components/Skills.astro";
+import ProyectosData from "../data/Proyectos.json";
+import CardProyectos from "../components/CardProyectos.astro";
+import Conoceme from "../components/Conoceme.astro";
+import Formulario from "../components/Formulario.astro";
+
+---
+
+<Layout titulo="Portafolio" descripction="Portafolio de enrique">
+	<HeroImg />
+	<section>
+		<div class="CircleBlur--Habilidades degradado"></div>
+		<div class="wrapper">
+			<h2 class="titleSection">Habilidades</h2>
+			<div class="Habilidades-Container">
+				{
+					HabilidadesData.map(({icono, texto}) =>{
+						return <Skills nameIcon={icono} texto={texto}/>
+					})
+				}
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="wrapper">
+			<h2 class="titleSection">Proyectos</h2>
+			<div class="Proyectos-Container">
+				{
+					ProyectosData.map((proyecto) =>{
+						return <CardProyectos {...proyecto}/>
+					})
+				}
+			</div>
+		</div>
+	</section>
+	<Conoceme />
+	<Formulario />
+</Layout>
+
+
+<style lang="scss" >
+	 .Habilidades-Container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        width: min(90%, 700px);
+        margin-inline: auto;
+    }
+
+	.Proyectos-Container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @media (width > 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (width > 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>
