@@ -7,12 +7,13 @@ import ProyectosData from "../data/Proyectos.json";
 import CardProyectos from "../components/CardProyectos.astro";
 import Conoceme from "../components/Conoceme.astro";
 import Formulario from "../components/Formulario.astro";
+import Cta from "../components/Cta.astro";
 
 ---
 
 <Layout titulo="Portafolio" descripction="Portafolio de enrique">
 	<HeroImg />
-	<section>
+	<section id="Habilidades">
 		<div class="CircleBlur--Habilidades degradado"></div>
 		<div class="wrapper">
 			<h2 class="titleSection">Habilidades</h2>
@@ -25,7 +26,8 @@ import Formulario from "../components/Formulario.astro";
 			</div>
 		</div>
 	</section>
-	<section>
+	<section id="Portafolio">
+		<div class="CircleBlur--portafolio degradado"></div>
 		<div class="wrapper">
 			<h2 class="titleSection">Proyectos</h2>
 			<div class="Proyectos-Container">
@@ -38,6 +40,7 @@ import Formulario from "../components/Formulario.astro";
 		</div>
 	</section>
 	<Conoceme />
+	<Cta />
 	<Formulario />
 </Layout>
 

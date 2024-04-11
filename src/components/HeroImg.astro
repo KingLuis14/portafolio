@@ -1,11 +1,13 @@
+---
+import NavBar from "./NavBar.astro";
+
+
+---
+
 <section class="HeroImg">
     <div class="CircleBlur--1 degradado"></div>
     <div class="CircleBlur--2 degradado"></div>
-    <!-- <nav class="Navbar">
-        <ul>
-            <li>Conoceme</li>
-        </ul>
-    </nav> -->
+    <NavBar />
     <div class="wrapper">
         <article class="HeroImg__Contenido">
             <h1 class="HeroImg__titulo superTitulo">
@@ -14,7 +16,7 @@
             </h1>
             <p class="HeroImg__parrafo">Diseñador y Maquetador Web</p>
             <div class="HeroImg__panelBoton">
-                <a href="#" class="HeroImg__btnContacto boton--primary"
+                <a href="#Contactame" class="HeroImg__btnContacto boton--primary"
                     >Contactame</a
                 >
                 <a href="#" class="HeroImg__btnCv boton--secondary"
@@ -26,14 +28,11 @@
 </section>
 
 <style lang="scss">
-    .Navbar {
-        position: sticky;
-        background-color: crimson;
-    }
 
     .HeroImg {
         display: grid;
-        min-height: 100dvh;
+        min-height: 100svh;
+        background-color: blue;
         background-color: var(--bg-color);
         position: relative;
         overflow: hidden;
