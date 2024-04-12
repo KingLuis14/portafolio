@@ -1,64 +1,126 @@
-<header>
-    <nav>
-        <ul class="Navbar__lista">
-            <li class="Navbar__item">
-                <a href="#Habilidades" class="Navbar__link">Habilidades</a>
-            </li>
-            <li class="Navbar__item">
-                <a href="#Portafolio" class="Navbar__link">Portafolio</a>
-            </li>
-            <li class="Navbar__item">
-                <a href="#Conoceme" class="Navbar__link">Conóceme</a>
-            </li>
-            <li class="Navbar__item">
-                <a href="#Contactame" class="Navbar__link">Contactame</a>
-            </li>
+---
+import { Icon } from "astro-icon/components";
+interface Props {
+    ArrayItems: { item: string; url: string }[];
+}
+
+const { ArrayItems } = Astro.props;
+
+---
+
+
+<header class="navbar-container">
+    <nav class="navbar wrapper">
+        <a class="navbar__logo" href="/">
+            <span>
+                <Icon name="Dev" style="height:100%; width:auto"/>
+            </span>
+        </a>
+        <ul class="menu" id="main-menu">
+            {
+                ArrayItems.map( ({ item, url }) => {
+                    return <li class="menu__item">
+                                <a class="menu__link" href={url}>
+                                    {item}
+                                </a>
+                            </li>
+                })
+            }
         </ul>
+        <button class="Boton-Toogle" id="BtnToogle" title="Button-Show">
+            <Icon name="MenuIcon" size={16} />
+        </button>
     </nav>
-    
 </header>
 
-<style lang="scss" >
-    header{
-        position: fixed;
-        z-index: 20;
-        width: 100%;
-        display: grid;
-        align-items: center;
-        
+<style lang="scss">
+    .navbar-container {
         height: var(--alto-header);
-        animation: Blur linear both;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        padding-block: 0.5rem;
+        animation: blur linear both;
         animation-timeline: scroll();
         animation-range: 0 100svh;
-        // background-color: rgba(2, 2, 23, 0.2);
 
-        @keyframes Blur {
+        @keyframes blur {
             100%{
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.32);
-                background-color: rgba(0, 0, 0, 0.32);
-                backdrop-filter: blur(10px);
+                background-color: #131331;
             }
         }
-        
     }
 
-    .Navbar__lista{
+    .navbar {
         display: flex;
-        justify-content: center;
-        // background-color: crimson;
-        gap: 2rem; 
-        
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        z-index: 100;
+
+        &__logo {
+            height: 100%;
+            width: auto;
+        }
     }
 
-    .Navbar__item{
-        
-        color: #fff;
-    }
-    .Navbar__link{
-        color: #fff;
+    .menu {
+        background-color: #131331;
+        position: fixed;
+        top: var(--alto-header);
+        width: 100%;
+        height: 100%;
+        will-change: right;
+        right: -100%;
+        transition: right 0.5s;
+        // backdrop-filter: blur(1rem);
 
-        &:hover{
-            color: var(--color-Secondary);
+        &.active {
+            will-change: auto;
+            right: -35%;
+        }
+
+        &__item {
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        &__link {
+            color: #fff;
+        }
+
+        @media (width > 768px) {
+            background-color: transparent;
+            position: static;
+            width: auto;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .Boton-Toogle{
+        border: none;
+        background-color: var(--color-Primary);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        height: 100%;
+        padding-inline: 0.5rem;
+        color: white;
+
+        @media (width > 768px) {
+            display: none;
         }
     }
 </style>
+
+<script>
+    const MenuHamburguesa = document.getElementById("BtnToogle");
+        const MainMenu = document.getElementById("main-menu");
+
+        MenuHamburguesa.addEventListener("click", () => {
+            MainMenu.classList.toggle("active");
+        });
+</script>

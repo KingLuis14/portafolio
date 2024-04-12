@@ -3,49 +3,38 @@ import Layout from "../components/Layout.astro";
 import HeroImg from "../components/HeroImg.astro";
 import HabilidadesData from "../data/Habilidades.json";
 import Skills from "../components/Skills.astro";
-import ProyectosData from "../data/Proyectos.json";
-import CardProyectos from "../components/CardProyectos.astro";
 import Conoceme from "../components/Conoceme.astro";
 import Formulario from "../components/Formulario.astro";
 import Cta from "../components/Cta.astro";
-
+import Bento from "../components/Bento.astro";
 ---
 
 <Layout titulo="Portafolio" descripction="Portafolio de enrique">
-	<HeroImg />
-	<section id="Habilidades">
-		<div class="CircleBlur--Habilidades degradado"></div>
-		<div class="wrapper">
-			<h2 class="titleSection">Habilidades</h2>
-			<div class="Habilidades-Container">
-				{
-					HabilidadesData.map(({icono, texto}) =>{
-						return <Skills nameIcon={icono} texto={texto}/>
-					})
-				}
+	<main>
+		<HeroImg />
+		<section id="Habilidades">
+			<!-- <div class="CircleBlur--Habilidades degradado"></div> -->
+			<div class="wrapper">
+				<h2 class="titleSection">Habilidades</h2>
+				<div class="Habilidades-Container">
+					{
+						HabilidadesData.map(({icono, texto}) =>{
+							return <Skills nameIcon={icono} texto={texto}/>
+						})
+					}
+				</div>
 			</div>
-		</div>
-	</section>
-	<section id="Portafolio">
-		<div class="CircleBlur--portafolio degradado"></div>
-		<div class="wrapper">
-			<h2 class="titleSection">Proyectos</h2>
-			<div class="Proyectos-Container">
-				{
-					ProyectosData.map((proyecto) =>{
-						return <CardProyectos {...proyecto}/>
-					})
-				}
-			</div>
-		</div>
-	</section>
-	<Conoceme />
-	<Cta />
-	<Formulario />
+		</section>
+		<Bento />
+		<Conoceme />
+		<Cta />
+		<Formulario />
+	</main>
 </Layout>
 
 
 <style lang="scss" >
+
 	 .Habilidades-Container {
         display: flex;
         flex-wrap: wrap;
@@ -68,3 +57,27 @@ import Cta from "../components/Cta.astro";
         }
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const images =
+            document.querySelectorAll<HTMLImageElement>("img[data-srcx]");
+
+        const imgOptions = {
+            rootMargin: `0px 0px 300px 0px`,
+        };
+        const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                const img = entry.target as HTMLImageElement;
+                img.src = img.getAttribute("data-srcx");
+                imgObserver.unobserve(entry.target);
+            });
+        }, imgOptions);
+
+        images.forEach((img) => {
+            imgObserver.observe(img);
+        });
+    });
+</script>

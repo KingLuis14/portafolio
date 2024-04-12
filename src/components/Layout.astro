@@ -1,16 +1,12 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import NavBar from './NavBar.astro';
+import MenuData from "../data/Menu.json";
 
 interface Props {
     titulo: string;
     descripction: string;
 }
 const { titulo, descripction } = Astro.props;
-
-// import NavBar from "../components/NavBar/NavBar.astro";
-// import BtnWhatsApp from "../components/BotonWsp/BtnWsp.astro";
-// import DataFooter from "../data/Footer.json";
-// import FooterList from "./Footer/FooterList.astro";
 
 ---
 
@@ -22,9 +18,9 @@ const { titulo, descripction } = Astro.props;
         <meta name="description" content={descripction} />
         <slot name="preload" />
         <title>Enrique Calero - {titulo}</title>
-        <!-- <ViewTransitions /> -->
     </head>
     <body>
+        <NavBar ArrayItems={MenuData}/>
         <slot />
     </body>
 
@@ -95,6 +91,8 @@ const { titulo, descripction } = Astro.props;
         font-family: "inter", Helvetica, sans-serif;
         line-height: 1.45;
         overflow-x: hidden;
+        background-color: var(--bg-color);
+        
         
     }
 
@@ -119,7 +117,7 @@ const { titulo, descripction } = Astro.props;
 
     section {
         padding-block: var(--section-padding);
-        background-color: var(--bg-color);
+        
         position: relative;
     }
 
@@ -172,7 +170,6 @@ const { titulo, descripction } = Astro.props;
     h3,
     .title3 {
         font-size: var(--step-1);
-        font-weight: 800;
     }
     h4,
     .normal {

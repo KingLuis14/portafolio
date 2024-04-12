@@ -12,24 +12,24 @@ const { titulo, descripcion, imagenes, tags, url } = Astro.props;
 const { base64, original } = imagenes;
 ---
 
-<article class=`Card`>
+<article class=`Bento`>
     <a
         href={`/programas-estudio/${url}`}
         style="overflow: hidden; display: block;"
     >
         <img
-            class="Card__imagen"
+            class="Bento__imagen"
             data-srcx={original}
             style={`background-image: url(${base64})`}
             alt={`${titulo} - Enrique Calero`}
         />
     </a>
-    <div class="Card__Contenido">
-        <a href={`/programas-estudio/${url}`} class="Card__titulo">
+    <div class="Bento__Contenido">
+        <a href={`/programas-estudio/${url}`} class="Bento__titulo">
             <h3>{titulo}</h3>
         </a>
-        <p class="Card__texto">{descripcion}</p>
-        <h3 class="Card__precio">Hecho con :</h3>
+        <p class="Bento__texto">{descripcion}</p>
+        <h5 class="Bento__Hecho">Hecho con :</h5>
         <ul class="Tag">
             {
                 tags.map((tag) => {
@@ -41,7 +41,7 @@ const { base64, original } = imagenes;
 </article>
 
 <style lang="scss">
-    .Card {
+    .Bento {
         display: grid;
         grid-template-rows: auto 1fr;
         gap: 1rem;
@@ -54,7 +54,7 @@ const { base64, original } = imagenes;
 
         &__imagen {
             aspect-ratio: 16/9;
-            transform: scale(1.05);
+            transform: scale(1.02);
             transition: transform 0.6s;
             background-color: #130b36;
 
@@ -63,15 +63,23 @@ const { base64, original } = imagenes;
             }
         }
 
+        &__titulo{
+            color: white;
+        }
+
         &__texto {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 4;
             overflow: hidden;
         }
+
+        &__Hecho{
+            font-weight: 500;
+        }
     }
 
-    .Card__Contenido {
+    .Bento__Contenido {
         
         display: flex;
         flex-direction: column;
@@ -90,6 +98,9 @@ const { base64, original } = imagenes;
             padding: 0.5rem 1rem;
             background-color: #0f0632;
             border-radius: 100vh;
+            color: #948bb6;
         }
     }
 </style>
+
+
