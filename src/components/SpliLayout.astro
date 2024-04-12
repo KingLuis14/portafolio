@@ -13,7 +13,9 @@ const {orderContainer = "Left"} = Astro.props;
         <slot />
     </div>
     <div class="Imagen-Container">
-        <img class="Split__Imagen"  src="https://refine.ams3.cdn.digitaloceanspaces.com/blog/2023-06-12-astro-js/social.png" alt={` - Enrique Calero`} />
+        <img class="Split__Imagen" 
+            data-srcx={"img/Nebelung-gato-tiendanimal.avif"}
+            alt={` - Enrique Calero`} />
     </div>
 </article>
 
@@ -35,6 +37,7 @@ const {orderContainer = "Left"} = Astro.props;
 
     .Imagen-Container{
         width: 70%;
+        background-color: #181234;
         justify-self: center;
         overflow: hidden;
         clip-path: circle(50% at 50% 50%);

@@ -9,10 +9,9 @@ import Cta from "../components/Cta.astro";
 import Bento from "../components/Bento.astro";
 ---
 
-<Layout titulo="Portafolio" descripction="Portafolio de enrique">
-	<main>
+<Layout titulo="Portafolio" descripction="Hola, soy Enrique Calero,me encanta maquetar sitios web a partir de una pieza grafica, siguiendo buenas practicas.¿Tienes un negocio y quieres dar a conocer tus servicios en internet?">
 		<HeroImg />
-		<section id="Habilidades">
+		<section  id="Habilidades">
 			<div class="CircleBlur--Habilidades degradado"></div>
 			<div class="wrapper">
 				<h2 class="titleSection">Habilidades</h2>
@@ -29,7 +28,6 @@ import Bento from "../components/Bento.astro";
 		<Conoceme />
 		<Cta />
 		<Formulario />
-	</main>
 </Layout>
 
 
@@ -64,7 +62,7 @@ import Bento from "../components/Bento.astro";
             document.querySelectorAll<HTMLImageElement>("img[data-srcx]");
 
         const imgOptions = {
-            rootMargin: `0px 0px 300px 0px`,
+            rootMargin: `0px 0px 400px 0px`,
         };
         const imgObserver = new IntersectionObserver((entries, imgObserver) => {
             entries.forEach((entry) => {

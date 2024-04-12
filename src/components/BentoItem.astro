@@ -1,30 +1,35 @@
 ---
 interface Props {
     titulo: string;
+    url: string;
     descripcion?: string;
     bentoStyle?: string;
     imagenes: { base64: string; original: string };
 
 }
 
-const { titulo, descripcion, imagenes, bentoStyle, ...rest } = Astro.props;
+const { titulo, url , descripcion, imagenes, bentoStyle, ...rest } = Astro.props;
 
 const { base64, original } = imagenes;
 ---
 
 <article class=`Bento ${bentoStyle} ` {...rest}>
-    <a class="BentoImage-Container" style="overflow: hidden; display: block;"
+    <a class="BentoImage-Container" href={url}  target="_blank"
+        aria-label={`click para ir al proyecto ${titulo} de Enrique Calero`} 
+        style="overflow: hidden; display: block;"
     >
         <img
             class="Bento__imagen"
             data-srcx={original}
             style={`background-image: url(${base64})`}
-            alt={`${titulo} - Enrique Calero`}
+            alt={`Proyecto ${titulo} de Enrique Calero`}
         />
     </a>
     <div class="overlay"></div>
     <div class="Bento__Contenido">
-        <h3>{titulo}</h3>
+        <a  href={url}  target="_blank" aria-label={`click para ir al proyecto ${titulo} de Enrique Calero`} > 
+            <h3 style="color: white;">{titulo}</h3>
+        </a>
         {descripcion && <p>{descripcion}</p>}
         <ul class="Tag">
             <li class="Tag__Item smallx">astro</li>
@@ -61,6 +66,7 @@ const { base64, original } = imagenes;
         top: 0;
         bottom: 0;
         width: 100%;
+        background-color: #181234;
     }
 
     .Bento__Contenido{
@@ -73,6 +79,7 @@ const { base64, original } = imagenes;
 
     .overlay{
         position: absolute;
+        pointer-events: none;
         top: 0;
         width: 100%;
         bottom: 0;

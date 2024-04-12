@@ -2,21 +2,21 @@
 import BentoItem from "./BentoItem.astro";
 import ProyectosData from "../data/Proyectos.json";
 
-const {imagenes} = ProyectosData[0];
-const {imagenes: images21} = ProyectosData[1];
-const {imagenes: imageGifs} = ProyectosData[2];
-const {imagenes: imagesIFT} = ProyectosData[3];
+const {imagenes, url} = ProyectosData[0];
+const {imagenes: images21, url: url2} = ProyectosData[1];
+const {imagenes: imageGifs, url: url3} = ProyectosData[2];
+const {imagenes: imagesIFT, url: url4} = ProyectosData[3];
 ---
 
 <section id="Portafolio">
     <div class="CircleBlur--portafolio degradado"></div>
-    <div class="wrapper">
+    <div class="wrapper" >
         <h2 class="titleSection">Proyectos</h2>
         <div class="Bento-Container">
-            <BentoItem titulo="Intituto IISEP" bentoStyle="col4" imagenes={imagenes}/>
-            <BentoItem titulo="Buscador de Gifs" bentoStyle="col6" imagenes={imageGifs}/>
-            <BentoItem titulo="Juego de 21" bentoStyle="col6" imagenes={images21}/>
-            <BentoItem titulo="Intituto IFT" bentoStyle="col4" imagenes={imagesIFT}/>
+            <BentoItem titulo="Intituto IISEP" url={url}  bentoStyle="col4" imagenes={imagenes}/>
+            <BentoItem titulo="Buscador de Gifs"url={url3}  bentoStyle="col6" imagenes={imageGifs}/>
+            <BentoItem titulo="Juego de 21" url={url2} bentoStyle="col6" imagenes={images21}/>
+            <BentoItem titulo="Intituto IFT"url={url4}  bentoStyle="col4" imagenes={imagesIFT}/>
         </div>
     </div>
 </section>
