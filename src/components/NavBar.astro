@@ -20,7 +20,7 @@ const { ArrayItems } = Astro.props;
             {
                 ArrayItems.map( ({ item, url }) => {
                     return <li class="menu__item">
-                                <a class="menu__link" href={url}>
+                                <a class="menu__link small" href={url}>
                                     {item}
                                 </a>
                             </li>
@@ -89,6 +89,7 @@ const { ArrayItems } = Astro.props;
 
         &__link {
             color: #fff;
+            
         }
 
         @media (width > 768px) {

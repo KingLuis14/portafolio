@@ -16,7 +16,21 @@ const { titulo, descripction } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={descripction} />
+        <link
+            rel="icon"
+            href="/Dev.svg"
+            type="image/svg+xml"
+        />
+        <link
+            rel="preload"
+            href="/fonts/Inter-VariableFont_slnt,wght.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
         <slot name="preload" />
+
+
         <title>Enrique Calero - {titulo}</title>
     </head>
     <body>
@@ -26,19 +40,13 @@ const { titulo, descripction } = Astro.props;
 
 </html>
 <style is:global lang="scss">
-    // @font-face {
-    //     font-family: "Boogaloo";
-    //     src: url("/fonts/Boogaloo-Regular.woff2") format("woff2");
-    //     font-display: swap;
-    // }
-
-    // @font-face {
-    //     font-family: "Mulish";
-    //     src: url("/fonts/Mulish-VariableFont_wght.woff2")
-    //         format("woff2-variations");
-    //     font-weight: 100 1000;
-    //     font-display: swap;
-    // }
+    @font-face {
+        font-family: "inter";
+        src: url("/fonts/Inter-VariableFont_slnt,wght.woff2")
+            format("woff2-variations");
+        font-weight: 100 1000;
+        font-display: swap;
+    }
 
     :root {
         --step--2: clamp(0.6944rem, 0.6766rem + 0.089vi, 0.7378rem);
@@ -210,8 +218,11 @@ const { titulo, descripction } = Astro.props;
         position: absolute;
         aspect-ratio: 1/1;
         border-radius: 50%;
-        opacity: 0.4;
-        filter: blur(80px);
+        
+        filter:  opacity(0.4) blur(60px);
+
+        // opacity: 0.4;
+        // filter: blur(60px);
 
 
         &--1 {
@@ -231,6 +242,7 @@ const { titulo, descripction } = Astro.props;
 
         &--Habilidades{
             @extend .CircleBlur;
+            // filter:  opacity(0.5) blur(60px);
             width: 30vmin;
             left: 20%;
             top: 35%;
@@ -252,6 +264,7 @@ const { titulo, descripction } = Astro.props;
 
         &--portafolio{
             @extend .CircleBlur;
+            // filter:  opacity(0.5) blur(60px);
             width: 40vmin;
             top: 50%;
             left: 50%;
