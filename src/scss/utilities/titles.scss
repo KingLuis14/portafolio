@@ -1,0 +1,14 @@
+@use '../settings' as *;
+
+.title2{
+    @include titles( $fs-title2 , $color-neutral-000 , normal );
+}
+
+.title-section{
+    @include titles( $fs-title1 , $color-neutral-000 , normal );
+    padding-block-end: $padding-bottom-title-section;
+}
+
+.superTitle{
+    @include titles( $fs-superTitle , $color-neutral-000 , normal );
+}

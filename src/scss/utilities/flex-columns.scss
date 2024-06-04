@@ -1,0 +1,10 @@
+@use "../settings/" as *;
+
+.flex-columns{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: var(--_flex-direction, row );
+    gap: var(--_flex-gap, 1rem);
+
+
+}

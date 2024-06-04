@@ -1,0 +1,120 @@
+---
+interface Props {
+    title: string;
+    description: string;
+}
+
+import Layout from "./Layout.astro";
+---
+
+<Layout {...Astro.props}>
+    <article>
+        <section class="text-flow Contenido">
+            <slot />
+        </section>
+        <aside class="Indice">
+            <nav>
+                <slot name="mapa" />
+            </nav>
+        </aside>
+        
+    </article>
+</Layout>
+
+<style lang="scss">
+
+    article {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "contenido";
+        width: min(90%, 1100px);
+        margin-inline: auto;
+        padding-top: calc(var(--alto-header) + 1.5rem);
+
+        gap: 2rem;
+
+        @media (width > 1024px) {
+            grid-template-columns: 1fr 300px;
+            grid-template-areas: "contenido indice";
+        }
+    }
+
+    .Contenido {
+        grid-area: contenido;
+        overflow-x: hidden;
+        word-break: break-word;
+        padding-block: 0;
+        
+        :global(code) {
+            display: inline;
+            background-color: #24292e;
+            padding: .125rem .25rem;
+            color: #9ecbff;
+            border-radius: .25rem;
+        }
+
+        > :global(p) {
+            color: #a5a5bf;
+
+            
+        }
+    }
+
+    .Indice {
+        grid-area: indice;
+        align-self: flex-start;
+        display: none;
+
+        @media (width > 1024px) {
+            position: sticky;
+            top: 4.5rem;
+            display: block;
+        }
+
+        & :global(h4) {
+            padding-left: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    }
+</style>
+
+<script>
+
+document.addEventListener("astro:page-load", function () {
+
+
+
+    const $titleIndice = document.querySelectorAll(
+        ".Contenido > h2,.Contenido > h3",
+    );
+    const $linksIndice = document.querySelectorAll(".navIndice__link");
+
+    const options = {
+        rootMargin: "0px 0px -50% 0px",
+        threshold: 1,
+    };
+    const observerIndice = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const links = entry.target as HTMLElement;
+                const idTitulo = links.getAttribute("id");
+                console.log(idTitulo);
+
+                $linksIndice.forEach((link) => {
+                    const idLink = link.getAttribute("href").replace(/^#/, "");
+                    link.classList.remove("active");
+
+                    if (idTitulo === idLink) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        });
+    }, options);
+
+    $titleIndice.forEach((link) => {
+        observerIndice.observe(link);
+    });
+
+});
+</script>

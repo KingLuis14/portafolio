@@ -1,0 +1,60 @@
+---
+import Skill from "../components/Skills.astro";
+import HabilidadesData from "../data/Habilidades.json";
+---
+
+<section class="Skill | wrapper-layout padding-section">
+    <header>
+        <h2 class="title-section text-center" id="Habilidades">Habilidades</h2>
+    </header>
+    <div  style="overflow: hidden;">
+        <ul class="Skill__list" id="carruselTrack">
+            {
+                HabilidadesData.map(({ icono, texto }) => {
+                    return (
+                        <li>
+                            <Skill nameIcon={icono} texto={texto} />
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </div>
+</section>
+
+<style lang="scss">
+    .Skill {
+        mask: linear-gradient(90deg, transparent , white 20% , white 80%, transparent);
+        &__list {
+            display: flex;
+
+            gap: 40px;
+            width: max-content;
+            
+
+            > :global(*) {
+                flex-shrink: 0;
+            }
+
+            @keyframes moverInfinito {
+                to {
+                    transform: translate(calc(-50% - 20px));
+                }
+            }
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const carrusel = document.getElementById("carruselTrack");
+        const $ArrayItem = Array.from(carrusel.children);
+
+        $ArrayItem.forEach(element => {
+
+            carrusel.append(element.cloneNode(true));
+        });
+
+        carrusel.style.animation = "moverInfinito 14s forwards linear infinite";
+    });
+</script>

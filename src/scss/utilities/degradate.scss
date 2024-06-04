@@ -1,0 +1,41 @@
+@use '../settings/' as *;
+
+.degradado {
+    background-image: linear-gradient(
+        135deg,
+        $color-primary-600 0%,
+        $color-contrast-100 100%
+    );
+}
+
+.radial-gradiente-1{
+    background: radial-gradient(circle 100vmin at 50% 50%, hsla(215, 73%, 48%, 0.192) 0%, rgba(3, 4, 33, 1) 28%);
+}
+
+.radial-gradiente-2{
+    background: radial-gradient(circle 100vmin at 50% 30%, hsla(215, 73%, 48%, 0.192) 0%, rgba(3, 4, 33, 1) 30%);
+
+    @include media-Query(tablet) {
+        background: radial-gradient(circle 100vmin at 40% 60%, hsla(215, 73%, 48%, 0.150) 0%, rgba(3, 4, 33, 1) 28%);
+    }
+}
+
+.radial-gradiente-3{
+
+    background: radial-gradient(circle 100vmin at 50% 50%, hsla(215, 73%, 48%, 0.130) 0%, transparent 35%);
+    
+
+    @include media-Query(tablet) {
+        background: radial-gradient(circle 100vmin at 25% 55%, hsla(215, 73%, 48%, 0.130) 0%, transparent 35%),
+    radial-gradient(circle 100vmin at 65% 55%, hsla(215, 73%, 48%, 0.130) 0%, transparent 35%);
+    }
+
+}
+
+.radial-gradiente-4{
+    background: radial-gradient(circle 100vmin at 50% 50%, hsla(215, 73%, 48%, 0.192) 0%, rgba(3, 4, 33, 1) 35%);
+}
+
+.radial-gradiente-5{
+    background: radial-gradient(circle 100vmin at 35% 40%, hsla(215, 73%, 48%, 0.200) 0%, rgba(3, 4, 33, 1) 40%);
+}

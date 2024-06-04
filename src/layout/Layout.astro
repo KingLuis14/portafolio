@@ -1,0 +1,53 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import NavBar from '../components/NavBar.astro';
+import MenuData from "../data/Menu.json";
+
+interface Props {
+    title: string;
+    description: string;
+}
+const { title, description } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={description} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <title>Enrique Calero - {title}</title>
+        <link
+            rel="icon"
+            href="/Dev.svg"
+            type="image/svg+xml"
+        />
+        <link
+            rel="preload"
+            fetchpriority="high"
+            href="/fonts/inter-latin-variable-full-normal.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <slot name="preload" />
+        
+        <ViewTransitions />
+    </head>
+    <body>
+        <NavBar ArrayItems={MenuData}/>
+        <main>
+            <slot />
+        </main>
+    </body>
+
+</html>
+<style is:global lang="scss">
+
+    @use '../scss/base' as * ;
+    @use '../scss/utilities' as *;
+    @use '../scss/layouts' as *;
+    
+</style>

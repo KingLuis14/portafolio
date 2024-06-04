@@ -1,0 +1,62 @@
+@use 'sass:color';
+
+// Global color tokens
+
+$color-white: hsl(0, 0%, 100%);
+$color-cyan: #0dfdd1;
+$color-blue-100: hsl(220, 26%, 65%);
+$color-blue-600: hsl(215, 73%, 48%);
+$color-blue-800: hsl(240, 53%, 19%);
+$color-blue-950: #030421;
+
+$color-black: hsl(0, 0%, 0%);
+$color-black-950: hsl(0, 0%, 10%);
+
+
+$dark : (
+    "neutral": (
+        "000" : $color-white,
+    ),
+
+    "contrast":(
+        "100" : $color-cyan,
+    ),
+
+    "primary":(
+        "100" : $color-blue-100,
+        "600" : $color-blue-600,
+        "800" : $color-blue-800,
+        "950" : $color-blue-950,
+    )
+);
+
+$ligth : (
+    "neutral": (
+        "000" : $color-black,
+    ),
+
+    "contrast":(
+        "100" : $color-cyan,
+    ),
+
+    "primary":(
+        "100" : $color-black-950,
+        "600" : $color-blue-600,
+        "800" : $color-blue-800,
+        "950" : $color-white,
+    )
+);
+
+// Contextual color tokens
+
+$color-neutral-000 : var(--neutral-000);
+$color-contrast-100 : var(--contrast-100);
+$color-primary-100 : var(--primary-100);
+$color-primary-600 : var(--primary-600);
+$color-primary-800 : var(--primary-800);
+$color-primary-950 : var(--primary-950);
+
+// toogle theme
+$theme : $dark;
+
+$initial : initial;

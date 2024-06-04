@@ -1,0 +1,23 @@
+@use '../settings/' as *;
+
+.columns-progresive{
+    --columns : var(--_columns, 1);
+    --gaps : var(--_gaps, 1rem);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    & > * {
+        flex-basis: calc((100% - (( var(--columns) - 1 ) * var(--gaps))) / var(--columns));
+    }
+
+    @include media-Query(tabletSmall){
+        --columns : 2;
+    }
+
+    @include media-Query(desktop){
+        --columns : 3;
+    }
+
+}

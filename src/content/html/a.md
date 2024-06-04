@@ -1,0 +1,55 @@
+---
+titlePage: "html-a"
+descriptionPage: "El elemento <a> es uno de los más importantes de HTML (si no es la que más), ya que nos permite realizar referencias a otras páginas web o recursos como documentos, imágenes, videos, etc. Estas referencias se suelen denominar enlaces, vínculos o hipervínculos. Para ello, tenemos que indicar la URL de la dirección del recurso a enlazar y el texto o contenido que vamos a convertir en enlazable."
+cardTitle : "El elemento <a>"
+imagenBlog: "https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg"
+indice: ['El elemento <a>','El atributo href','El atributo target','El atributo download']
+
+---
+
+# El elemento `<a>`
+
+
+El elemento `<a>` es uno más importantes de HTML **(si no es la que más)**, ya que nos permite realizar referencias a otras páginas web o recursos como documentos, imágenes, videos, etc. Estas referencias se suelen denominar enlaces, vínculos o hipervínculos. Para ello, tenemos que indicar la URL de la dirección del recurso a enlazar y el texto o contenido que vamos a convertir en enlazable.
+
+
+## El atributo `href`
+
+El elemento `<a>` debe tener, como mínimo, el atributo href, que es el atributo con el que se indica la dirección URL a la página, documento o recursos que se quiere enlazar. Por esta razón, siempre debería estar indicada.
+
+
+```html
+
+   <a href="https://www.ift.pe/">Ir al sitio web de IFT</a>
+    
+```
+
+## El atributo `target`
+
+Mediante el atributo target podemos modificar el lugar donde se va a abrir el recurso del enlace. Por defecto, si no incluímos el atributo `target`, los enlaces se abren en la misma ventana/pestaña en la que estamos. Sin embargo, podemos alterar ese comportamiento con los valores del atributo target.
+
+Por ejemplo, el valor _blank nos permite abrir en una nueva pestaña/ventana:
+
+
+```html
+
+   <a href="https://www.ift.pe/" target="_blank">Ir al sitio web de IFT</a>
+    
+```
+
+## El atributo `download`
+
+Por defecto, un navegador intentará abrir el recurso enlazado mediante el navegador. Esto es, si enlazamos una página o documento .html, lo intentará renderizar en el navegador visualmente, si enlazamos un archivo .pdf, lo intentará abrir con el propio navegador para mostrarlo sin abandonar el navegador, etc.
+
+Si en un elemento `<a>` incluimos el atributo download, estaremos indicando al navegador que nuestra intención no es renderizarlo en el navegador, sino descargarlo como fichero en el sistema del usuario:
+
+```html
+
+   <a href="https://www.ift.pe/">Ir al sitio web de IFT</a>
+    
+```
+
+## Recursos
+
+- [Elemento a MDN](https://developer.mozilla.org/es/docs/Web/HTML/Element/a)
+

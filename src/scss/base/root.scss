@@ -1,0 +1,22 @@
+@use "../settings/" as *;
+
+
+:root {
+    @each $typeColorKey, $typeColorMap in $theme {
+        @each $colorKey, $colorValue in $typeColorMap {
+            --#{$typeColorKey}-#{$colorKey} : #{$colorValue};
+        }
+    }
+
+    @each $font, $valueFont in $font-sizes{
+        --fs-#{$font} : #{$valueFont};
+    }
+
+    --alto-header: clamp(4rem, 1.2727rem + 3.6364vw, 3.7rem);
+    --section-padding: clamp(2rem, 1.2727rem + 3.6364vw, 4rem);
+    --bg-color: #040420;
+    --color-Primary: #165bd0;
+    --color-Secondary:#3fd5ce;
+    --initial : initial;
+    color-scheme: dark;
+}

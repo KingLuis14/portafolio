@@ -1,0 +1,118 @@
+@use '../settings/' as *;
+
+*,
+*::before,
+*::after {
+
+    box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-block-start: calc(var(--alto-header) + 1.5rem);
+}
+
+body {
+    font-family: $body-font-family, system-ui;
+    color: $body-text-color-default;
+    background-color: $body-background-color-default;
+    font-size: $body-font-size;
+    font-weight: $body-font-weight;
+    line-height: $body-line-height;
+}
+
+a {
+    display: inline-flex;
+    text-decoration: none;
+    color: $link-color;
+
+    &:is(:hover, :focus) {
+        color: $link-color-hover;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+video,
+svg {
+    display: block;
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+    text-indent: -9999px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+pre {
+    display: block;
+    white-space: normal;
+    clear: both;
+    color: #fff;
+    background: #1b1b1b;
+    padding: 0;
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+    -ms-word-break: normal;
+    word-break: normal;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    line-height: 28px;
+    border-radius: 8px;
+}
+
+code {
+    display: block;
+    white-space: pre;
+    overflow-x: auto;
+    max-width: 100%;
+    min-width: 100px;
+}
+
+.body {
+    min-height: calc(100svh - var(--alto-header));
+}
+
+
+.boton {
+    width: max-content;
+    border-radius: $button-border-radius;
+    padding: .4rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+
+    &--primary {
+        @extend .boton;
+        color: #fff;
+        background-color: var(--color-Primary);
+        border: 3px solid var(--color-Primary);
+
+    }
+
+    &--secondary {
+        @extend .boton;
+        color: var(--color-Secondary);
+        border: 3px solid var(--color-Secondary);
+    }
+}

@@ -1,0 +1,53 @@
+@use './colors.scss' as *;
+@use './typography.scss' as *;
+@use './sizes.scss' as *;
+
+
+// contextual
+
+$color-text-default: $color-primary-100;
+$color-background-default: $color-primary-950;
+$color-text-interactive-default: $color-neutral-000;
+$color-text-interactive-hover: $color-primary-100;
+$font-family-defaul: $fuente;
+$font-size-defaul: $fs-normal;
+$font-weight-default: $fw-400;
+
+// body
+
+$body-text-color-default : $color-text-default;
+$body-background-color-default : $color-background-default;
+$body-line-height: 1.65;
+$body-font-family: $font-family-defaul;
+$body-font-size: $font-size-defaul;
+$body-font-weight: $font-weight-default;
+
+// links
+
+$link-color: $color-text-interactive-default;
+$link-color-hover: $color-text-interactive-hover;
+
+// Layout
+
+$wrapper-layout-max-width: 950px;
+$wrapper-layout-max-width-sm: 800px;
+$padding-section : clamp(2rem, 1.2727rem + 3.6364vw, 5rem);
+$padding-bottom-title-section: clamp(2rem, 1.2727rem + 3.6364vw, 5rem);
+
+// Hero Image
+
+$hero-heigth: 100svh;
+
+//bbuttons
+
+$button-border-radius: $sizes-4;
+
+
+
+$button-primary-color: $color-neutral-000;
+$button-primary-background: $color-primary-600;
+$button-primary-color-hover: $color-neutral-000;
+$button-primary-background-hover: $color-primary-800;
+
+
+$alto-header : clamp(4rem, 1.2727rem + 3.6364vw, 3.7rem);

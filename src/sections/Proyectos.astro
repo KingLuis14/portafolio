@@ -1,0 +1,30 @@
+---
+import BentoItem from "../components/BentoItem.astro";
+import DataProyectos from "../data/Proyectos.ts";
+---
+
+<section class="bento | wrapper-layout padding-section">
+    <header class="bento__header">
+        <h2 class="title-section text-center" id="Portafolio">Proyectos</h2>
+    </header>
+    <ul class="bento__lista | grid-columns">
+        {
+            DataProyectos.map((proyecto) => (
+                <li>
+                    <BentoItem {...proyecto} />
+                </li>
+            ))
+        }
+    </ul>
+</section>
+
+<style lang="scss">
+    @use "../scss/settings/" as *;
+    .bento {
+        &__lista {
+            @include media-Query(tablet) {
+                --_columns: 2;
+            }
+        }
+    }
+</style>

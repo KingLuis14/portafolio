@@ -1,0 +1,21 @@
+@use './breakpoints.scss' as * ;
+
+@mixin media-Query($breakpoint) {
+    @if map-has-key($breakpoints , $breakpoint ) {
+        @media screen and (width > map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    @else {
+        @media screen and (width > $breakpoint) {
+            @content;
+        }
+    }
+}
+
+@mixin titles($fs, $color, $line-height : inherit){
+    font-size: $fs;
+    color: $color;
+    line-height: $line-height;
+}

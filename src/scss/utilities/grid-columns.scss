@@ -1,0 +1,8 @@
+@use "../settings/" as *;
+
+.grid-columns{
+    display: grid;
+    gap: var(--_gap, 1rem);
+    grid-template-columns: repeat(var(--_columns, 1), var(--_tracks , 1fr));
+
+}

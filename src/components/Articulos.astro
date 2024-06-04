@@ -1,0 +1,78 @@
+---
+
+import type { CollectionEntry } from 'astro:content';
+type Props = CollectionEntry<'html'>["data"] & { slug: string };
+
+const { imagenBlog, descriptionPage, slug, cardTitle } = Astro.props;
+
+---
+
+<article class="Article-Lenguage">
+    <a class="Article-Lenguage__header" href={`/html/${slug}`}>
+        <img class="Article-Lenguage__poster" 
+            src={imagenBlog} alt="">
+    </a>
+    <div class="Article-Lenguage__content text-flow">
+        <h3 class="Article-Lenguage__title">{`${cardTitle}`}</h3>
+        <p class="Article-Lenguage__description">{descriptionPage}</p>
+        <footer class="Article-Lenguage__footer">
+            <img 
+                src="https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg" 
+                alt="" 
+                class="Article-Lenguage__user">
+            <p class="Article-Lenguage__autor small">Enrique Calero</p>
+            <p class="Article-Lenguage__date small">09/04/2024</p>
+        </footer>
+    </div>
+
+    
+</article>
+
+<style lang="scss">
+
+    .Article-Lenguage{
+        background-color: #1f1839;
+        border-radius: .5rem;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: auto 1fr;
+
+
+
+        &__poster{
+            aspect-ratio: 16/9;
+        }
+        &__user{
+            width: 25px;
+            border-radius: 50%;
+            aspect-ratio: 1;
+            margin-right: .7rem;
+        }
+
+        &__content{
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        &__description{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+            flex-grow: 1;
+            color: #9ca2ae;
+        }
+
+        &__footer{
+            display: flex;
+            align-items: center;
+        }
+
+        &__date{
+            flex-grow: 1;
+            text-align: right;
+        }
+    }
+</style>

@@ -1,0 +1,87 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="wrapper-layout padding-section radial-gradiente-3" data-type="sm">
+    <header>
+        <h2 class="title-section text-center">Articulos</h2>
+    </header>
+    <ul class="blog__list | flex-columns">
+        <li>
+            <a href="#">
+                <article class="blog__article | grid-columns color-neutral-000">
+                    <span class="">
+                        <Icon name="Html" size={120} />
+                    </span>
+                    <p class="text-center">Html</p>
+                </article>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <article class="blog__article | grid-columns color-neutral-000">
+                    <span class="">
+                        <Icon name="Css" size={120} />
+                    </span>
+                    <p class="text-center">Css</p>
+                </article>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <article class="blog__article | grid-columns color-neutral-000">
+                    <span class="">
+                        <Icon name="JavaScript" size={120} />
+                    </span>
+                    <p class="text-center">JavaScript</p>
+                </article>
+            </a>
+        </li>
+    </ul>
+</section>
+
+
+<style lang="scss">
+
+    @use "../scss/settings/" as *;
+
+    .blog {
+
+        &__list {
+            
+            --_tracks: max-content;
+            --_flex-gap : 2rem;
+            --_flex-columns: 2;
+
+            justify-content: center;
+            justify-items: center;
+
+            > *{
+                flex-basis: calc((100% - (( var(--_flex-columns) - 1 ) * var(--_flex-gap))) /  var(--_flex-columns) );
+            }
+
+            @include media-Query(tablet) {
+                --_flex-columns: 3;
+            }
+
+            a{
+                display: block;
+            }
+        }
+
+        &__article{
+            
+            --_columns: 1;
+            --_gap : 1rem;
+            --_tracks: 1fr;
+
+            background-color: rgba(0, 0, 0, 0.082);
+            border: 1px solid rgba(255, 255, 255, 0.144);
+            border-radius: $sizes-4;
+            padding: 2rem 2.5rem;
+            
+        }
+
+        
+    }
+</style>

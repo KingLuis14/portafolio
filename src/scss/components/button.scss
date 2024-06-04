@@ -1,0 +1,22 @@
+@use "../settings/" as *;
+
+$button-padding : .5em 1.5em;
+$button-primary-color : $color-neutral-000;
+$button-primary-background : $color-primary-600;
+$button-contrast-color : $color-neutral-000;
+$button-contrast-background : $color-contrast-100;
+
+.button{
+
+    padding: $button-padding;
+
+    &[data-type="primary"]{
+        color: $button-primary-color;
+        background-color: $button-primary-background;
+    }
+    &[data-type="contrast"]{
+        color: $button-contrast-color;
+        background-color: $button-contrast-background;
+    }
+    
+}

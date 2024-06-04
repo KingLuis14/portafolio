@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+const blogEntries = await getCollection("html");
+
+
+import Articulos from "../../components/Articulos.astro";
+import Layout from "../../layout/Layout.astro";
+---
+
+<Layout title="html" description="Articulos del curso de Html por Enrique Calero">
+    <section data-wrapper="true">
+        <ul class="Articles-Container">
+        {
+            blogEntries.map((entry) =>{
+                
+                return <li >
+                    <Articulos {...entry.data} slug={entry.slug}/>
+                </li>
+                
+            })
+        }
+        </ul>
+
+        
+    </section>
+</Layout>
+
+<style>
+
+    section{
+        padding-block: 0;
+    padding-top: calc(var(--alto-header) + 1.5rem);
+    }
+    .Articles-Container{
+    
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%),1fr));
+        gap: 1.3rem;
+        
+    }
+</style>

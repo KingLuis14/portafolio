@@ -1,0 +1,8 @@
+@use '../settings/' as *;
+
+@each $font, $valueFont in $font-sizes{
+    .fs-#{$font}{
+        font-size: var(--fs-#{$font});
+    }
+
+}

@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "../../layout/BlogLayout.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("html");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { descriptionPage, indice } = entry.data;
+const { Content , headings} = await entry.render();
+console.log( headings);
+
+---
+
+<BlogLayout title={`${entry.collection}-${entry.slug}`} description={descriptionPage}>
+  <Content />
+  <Fragment slot="mapa">
+    <h4>En esta Página</h4>
+    <ul class="navIndice">
+      {
+        indice.map((item) => {
+
+          let enlace = item.replace(/\s+/g, '-').replace(/[<>]/g, '').toLowerCase();
+          
+          return (
+            <li class="navIndice__item">
+              <a href={`#${enlace}`} class="navIndice__link">
+                {item}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </Fragment>
+</BlogLayout>
+
+<style lang="scss">
+  .navIndice {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    
+
+    &__link {
+      display: block;
+      color: #a5a5bf;
+      padding-left: 0.5rem;
+      border-left: 2px solid transparent;
+
+      &.active {
+        border-left: 2px solid #1a56db;
+        color: white;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,18 @@
+@use "../settings/" as *;
+
+
+
+@each $typeColorKey, $typeColorMap in $theme{
+    @each $colorKey, $colorValue in $typeColorMap{
+        .color-#{$typeColorKey}-#{$colorKey}{
+            color: var(--_#{$typeColorKey}-#{$colorKey},var(--#{$typeColorKey}-#{$colorKey}));
+        }
+        .color-#{$typeColorKey}-#{$colorKey}-ni{
+            color: var(--initial, var(--#{$typeColorKey}-#{$colorKey}));
+        }
+        .bg-color-#{$typeColorKey}-#{$colorKey}{
+            background-color: var(--#{$typeColorKey}-#{$colorKey});
+        }
+    }
+}
+

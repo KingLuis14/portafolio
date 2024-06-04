@@ -1,0 +1,13 @@
+@use '../settings/' as *;
+
+
+.even-columns{
+    display: grid;
+    gap: var(--gap , 1rem);
+
+    @include media-Query(tablet){
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+
+}
