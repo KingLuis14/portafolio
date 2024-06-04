@@ -1,31 +1,20 @@
 ---
-import Layout from "../components/Layout.astro";
+import Layout from "../layout/Layout.astro";
 import HeroImg from "../components/HeroImg.astro";
-import HabilidadesData from "../data/Habilidades.json";
-import Skills from "../components/Skills.astro";
-import Conoceme from "../components/Conoceme.astro";
+import Conoceme from "../sections/Conoceme.astro";
+import Cta from "../sections/Cta.astro";
 import Formulario from "../components/Formulario.astro";
-import Cta from "../components/Cta.astro";
-import Bento from "../components/Bento.astro";
+import Proyectos from "../sections/Proyectos.astro";
+import Skills from "../sections/Skills.astro";
+import Blogs from "../sections/Blogs.astro";
 ---
 
-<Layout titulo="Portafolio" descripction="Hola, soy Enrique Calero,me encanta maquetar sitios web a partir de una pieza grafica, siguiendo buenas practicas.¿Tienes un negocio y quieres dar a conocer tus servicios en internet?">
+<Layout title="Portafolio" description="Hola, soy Enrique Calero, me encanta maquetar sitios web a partir de una pieza grafica, siguiendo buenas practicas.¿Tienes un negocio y quieres dar a conocer tus servicios en internet?">
 		<HeroImg />
-		<section  id="Habilidades">
-			<div class="CircleBlur--Habilidades degradado"></div>
-			<div class="wrapper">
-				<h2 class="titleSection">Habilidades</h2>
-				<div class="Habilidades-Container">
-					{
-						HabilidadesData.map(({icono, texto}) =>{
-							return <Skills nameIcon={icono} texto={texto}/>
-						})
-					}
-				</div>
-			</div>
-		</section>
-		<Bento />
+		<Skills />
+		<Proyectos />
 		<Conoceme />
+        <Blogs />
 		<Cta />
 		<Formulario />
 </Layout>
@@ -57,7 +46,7 @@ import Bento from "../components/Bento.astro";
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('astro:page-load', function () {
         const images =
             document.querySelectorAll<HTMLImageElement>("img[data-srcx]");
 
@@ -67,6 +56,7 @@ import Bento from "../components/Bento.astro";
         const imgObserver = new IntersectionObserver((entries, imgObserver) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
+                
 
                 const img = entry.target as HTMLImageElement;
                 img.src = img.getAttribute("data-srcx");
@@ -77,5 +67,6 @@ import Bento from "../components/Bento.astro";
         images.forEach((img) => {
             imgObserver.observe(img);
         });
+
     });
 </script>

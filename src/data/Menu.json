@@ -1,18 +1,22 @@
 [
     {
+        "item": "Html",
+        "url": "/html/"
+    },
+    {
         "item": "Habilidades",
-        "url": "#Habilidades"
+        "url": "/#Habilidades"
     },
     {
         "item": "Portafolio",
-        "url": "#Portafolio"
+        "url": "/#Portafolio"
     },
     {
         "item": "Conóceme",
-        "url": "#About-me"
+        "url": "/#About-me"
     },
     {
         "item": "Contactame",
-        "url": "#Formulario"
+        "url": "/#Formulario"
     }
 ]

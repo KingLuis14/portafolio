@@ -1,103 +1,128 @@
 ---
-interface Props {
-    titulo: string;
-    url: string;
-    descripcion?: string;
-    bentoStyle?: string;
-    imagenes: { base64: string; original: string };
+import type { Proyecto } from "../data/Proyectos.ts";
 
-}
+interface Props extends Proyecto {}
 
-const { titulo, url , descripcion, imagenes, bentoStyle, ...rest } = Astro.props;
+const { titulo, url, imagenes, tags } = Astro.props;
 
-const { base64, original } = imagenes;
+const { placeholder, original } = imagenes;
 ---
 
-<article class=`Bento ${bentoStyle} ` {...rest}>
-    <a class="BentoImage-Container" href={url}  target="_blank"
-        aria-label={`click para ir al proyecto ${titulo} de Enrique Calero`} 
+<article class=`bentoItem `>
+    <a
+        class="bentoItem__imagenContainer"
+        href={url}
+        target="_blank"
+        aria-label={`click para ir al proyecto ${titulo} de Enrique Calero`}
         style="overflow: hidden; display: block;"
     >
         <img
-            class="Bento__imagen"
+            class="bentoItem__imagen"
             data-srcx={original}
-            style={`background-image: url(${base64})`}
+            style={`background-image: url(${placeholder})`}
             alt={`Proyecto ${titulo} de Enrique Calero`}
         />
     </a>
     <div class="overlay"></div>
-    <div class="Bento__Contenido">
-        <a  href={url}  target="_blank" aria-label={`click para ir al proyecto ${titulo} de Enrique Calero`} > 
-            <h3 style="color: white;">{titulo}</h3>
+    <div class="bentoItem__body" >
+        <a
+            href={url}
+            target="_blank"
+            aria-label={`click para ir al proyecto ${titulo} de Enrique Calero`}
+        >
+            <h3 class="bentoItem__title | color-neutral-000">{titulo}</h3>
         </a>
-        {descripcion && <p>{descripcion}</p>}
-        <ul class="Tag">
-            <li class="Tag__Item smallx">astro</li>
-            <li class="Tag__Item smallx">html</li>
-            <li class="Tag__Item smallx">css</li>
-            <li class="Tag__Item smallx">Javascript</li>
+        <ul class="bentoItem__tag">
+            {
+                tags.map((tag) => (
+                    <li class="bentoItem__item | fs-smallx color-neutral-000">{tag}</li>
+                ))
+            }
         </ul>
     </div>
 </article>
 
 <style lang="scss">
-    .Bento {
+    .bentoItem {
         display: grid;
         align-items: end;
-        border-radius: .7rem;
+        border-radius: 0.7rem;
         overflow: hidden;
         position: relative;
+        height: 50vmin;
+        min-height: 35vh;
+
+        &__imagenContainer {
+            position: absolute;
+            inset: 0;
+        }
+
+        &__body {
+            position: relative;
+            padding-inline: 1rem;
+            padding-bottom: 1rem;
+            display: grid;
+            gap: 1rem;
+        }
 
         &__imagen {
-            aspect-ratio: 16/9;
             transform: scale(1.02);
+            height: 100%;
             transition: transform 0.6s;
-            background-color: #130b36;
 
             &:hover {
                 transform: scale(1.2);
             }
         }
 
-    }
+        &__title {
+            position: relative;
+            width: fit-content;
 
-    .BentoImage-Container{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: #181234;
-    }
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -0.2rem;
+                width: 50%;
+                height: 3px;
+                background-color: white;
+            }
+        }
 
-    .Bento__Contenido{
-        position: relative;
-        
-        padding: 1rem;
-        display: grid;
-        gap: 1rem;
-    }
+        &__tag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
 
-    .overlay{
-        position: absolute;
-        pointer-events: none;
-        top: 0;
-        width: 100%;
-        bottom: 0;
-          background: linear-gradient(180deg, 
-          rgba(0,0,0,.2) 10%,
-           rgba(0,0,0,.8) 100%);
-    }
-
-    .Tag {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.7rem;
-       
-
-        &__Item {
-            padding: 0.1rem .8rem;
+        &__item {
+            padding: 0.1rem 0.8rem;
             border-radius: 100vh;
             border: 1.5px solid #fff;
         }
+    }
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        border-image: fill 1
+            linear-gradient(
+                hsla(0, 0%, 0%, 0) 0%,
+                hsla(0, 0%, 0%, 0) 30%,
+                hsla(0, 0%, 0%, 0.1) 40%,
+                hsla(0, 0%, 0%, 0.2) 50%,
+                hsla(0, 0%, 0%, 0.3) 60%,
+                hsla(0, 0%, 0%, 0.4) 70%,
+                hsla(0, 0%, 0%, 0.5) 80%,
+                hsla(0, 0%, 0%, 0.6) 90%,
+                hsla(0, 0%, 0%, 0.7) 100%
+            );
+        pointer-events: none;
+
+  
+
+
+        // border-image: fill 1 linear-gradient(transparent 0%, rgba(0, 0, 0, .8) 50%);
     }
 </style>

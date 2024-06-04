@@ -44,13 +44,13 @@ export default function Form(props) {
     }
 
     return (
-        <form onSubmit={submit} className={Styles.formulario} ref={formulario}>
+        <form onSubmit={submit} className={`${Styles.formulario} fs-small color-neutral-000`} ref={formulario}>
 
-            <input className={Styles.input} name="nombre" id="nombre" placeholder="Nombre Completo" required />
-            <input className={Styles.input} name="email" type="email" placeholder="Correo" id="email" required />
-            <input className={Styles.input} name="nombre" id="numero" placeholder="Numero de Contacto" required />
-            <textarea className={Styles.textarea} name="observacion" placeholder="Mensaje" id="observacion"></textarea>
-            <button className={Styles.boton}>Contactame</button>
+            <input className={`${Styles.input} | bg-color-primary-800`} name="nombre" id="nombre" placeholder="Nombre Completo" required />
+            <input className={`${Styles.input} | bg-color-primary-800`} name="email" type="email" placeholder="Correo" id="email" required />
+            <input className={`${Styles.input} | bg-color-primary-800`} name="nombre" id="numero" placeholder="Numero de Contacto" type="tel" required />
+            <textarea className={`${Styles.textarea} | bg-color-primary-800`} name="observacion" placeholder="Mensaje" id="observacion"></textarea>
+            <button className={`${Styles.boton} boton--primary fs-normal`}>Contactame</button>
 
             <dialog className={Styles.modal} ref={modal}>
                 <div className={`${Styles.containerIcons}`} >

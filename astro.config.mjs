@@ -2,8 +2,9 @@ import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 
-import playformInline from "@playform/inline";
+import purgecss from "astro-purgecss";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,5 +12,5 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  integrations: [icon(), react(), sitemap(), playformInline()]
+  integrations: [icon(), react(), sitemap(), mdx(), purgecss()]
 });

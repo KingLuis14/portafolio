@@ -1,39 +1,37 @@
 ---
+
 ---
 
-<section class="HeroImg">
-    <div class="CircleBlur--1 degradado"></div>
-    <div class="CircleBlur--2 degradado"></div>
-    
-    <div class="wrapper">
-        <article class="HeroImg__Contenido">
-            <h1 class="HeroImg__titulo superTitulo">
-                Enrique <span class="HeroImg__textDegradado degradado"
-                    >Calero</span>
+<section class="HeroImg | radial-gradiente-1">
+    <div class="HeroImg__contenido | wrapper-layout color-neutral-000">
+        <header>
+            <h1 class="superTitle">
+                Enrique <span class="HeroImg__textDegradado | degradado"
+                    >Calero</span
+                >
             </h1>
-            <p class="HeroImg__parrafo">Diseñador y Maquetador Web</p>
-            <div class="HeroImg__panelBoton">
-                <a href="#Formulario" class="HeroImg__btnContacto boton--primary"
-                    >Contactame</a
-                >
-                <a href="#" class="HeroImg__btnCv boton--secondary"
-                    >Descargar CV</a
-                >
-            </div>
-        </article>
+        </header>
+        <p class="text-center color-primary-100">Diseñador y Maquetador Web</p>
+        <footer class="HeroImg__panelBoton">
+            <a href="#Formulario" class="boton--primary"
+                >Contactame</a
+            >
+            <a href="#" class="boton--secondary">Descargar CV</a>
+        </footer>
     </div>
 </section>
 
 <style lang="scss">
-
     .HeroImg {
         display: grid;
-        min-height: 100svh;
-        background-color: rgb(66, 27, 100);
-        background-color: var(--bg-color);
-        position: relative;
-        overflow: hidden;
-        padding-block: 0;
+        height: 100svh;
+        
+
+        &__contenido {
+            display: grid;
+            place-content: center;
+            gap: 1.5rem;
+        }
 
         &__panelBoton {
             margin-top: 0.5rem;
@@ -43,24 +41,9 @@
             justify-content: center;
         }
 
-        &__parrafo {
-            text-align: center;
-            color: #8b8ad0;
-        }
-
         &__textDegradado {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     }
-
-    .HeroImg__Contenido {
-        position: relative;
-        display: grid;
-        place-content: center;
-        color: white;
-        gap: 1.5rem;
-    }
-
-    
 </style>

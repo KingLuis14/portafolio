@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
+    "@astrojs/mdx": "^3.0.0",
     "@astrojs/react": "^3.2.0",
     "@astrojs/sitemap": "^3.1.2",
     "@playform/inline": "^0.0.2",
@@ -18,11 +19,15 @@
     "@types/react-dom": "^18.2.24",
     "astro": "^4.5.17",
     "astro-icon": "^1.1.0",
+    "astro-purgecss": "^4.1.1",
+    "purgecss": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.4.4"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss-preset-env": "^9.5.14",
     "sass": "^1.74.1"
   }
 }

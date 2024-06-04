@@ -1,79 +1,64 @@
 ---
-type order = 'Left' | "Right"
+type order = "Left" | "Right";
 
 interface Props {
-    orderContainer? : order;
+    orderContainer?: order;
 }
 
-const {orderContainer = "Left"} = Astro.props;
+const { orderContainer = "Left" } = Astro.props;
 ---
 
-<article class="Split-Container">
-    <div class:list={['contenido', {order : orderContainer === 'Right'}]}>
+<article class="Split-Container | grid-columns">
+    <div class:list={["contenido", { order: orderContainer === "Right" }]}>
         <slot />
     </div>
-    <div class="Imagen-Container">
-        <img class="Split__Imagen" 
-            data-srcx={"img/Nebelung-gato-tiendanimal.avif"}
-            alt={` - Enrique Calero`} />
-    </div>
+    <picture class="Imagen-Container">
+        <source srcset="/img/gato-mewing.avif" type="image/avif" />
+        <source srcset="/img/gato-mewing.webp" type="image/webp" />
+        <img
+            class="Split__Imagen"
+            data-srcx="/img/gato-mewing.webp"
+            alt={`Enrique Calero`}
+        />
+    </picture>
 </article>
 
 <style lang="scss">
+    @use "../scss/settings/" as *;
+
     .Split-Container {
-        width: min(100%, 850px);
-        margin-inline: auto;
-        display: grid;
-        justify-content: center;
-        gap: 3rem;
-        grid-template-columns: 1fr;
-        content-visibility: auto;
-        @media (width > 768px) {
-            grid-template-columns: 1fr 1fr;
-
+        --_gap: 3rem;
+        @include media-Query(tablet) {
+            --_columns: 2;
         }
-
     }
 
-    .Imagen-Container{
-        width: 70%;
+    .Imagen-Container {
+        width: 80%;
         background-color: #181234;
         justify-self: center;
         overflow: hidden;
         clip-path: circle(50% at 50% 50%);
-        @media (width > 768px) {
-            width: 100%;
-
-        }
+        aspect-ratio: 1/1;
     }
 
     .Split__Imagen {
-        filter: saturate(0.8);
-        transition:
-            transform 0.7s,
-            filter 0.7s;
-        aspect-ratio: 1/1;
-        
-
+        height: 100%;
+        transition: transform 0.5s;
 
         &:hover {
             transform: scale(1.15);
-            filter: saturate(1);
         }
-
-        
     }
 
-    .contenido{
+    .contenido {
         align-content: center;
     }
 
-    .order{
+    .order {
         order: 0;
         @media (width > 768px) {
             order: 1;
-
         }
     }
-
 </style>
