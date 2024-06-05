@@ -13,14 +13,14 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { descriptionPage, indice } = entry.data;
 const { Content , headings} = await entry.render();
-console.log( headings);
+// console.log( headings);
 
 ---
 
 <BlogLayout title={`${entry.collection}-${entry.slug}`} description={descriptionPage}>
   <Content />
   <Fragment slot="mapa">
-    <h4>En esta Página</h4>
+    <h4 class="color-neutral-000">En esta Página</h4>
     <ul class="navIndice">
       {
         indice.map((item) => {

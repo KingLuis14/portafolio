@@ -12,6 +12,12 @@ indice: ['El elemento <a>','El atributo href','El atributo target','El atributo 
 
 El elemento `<a>` es uno más importantes de HTML **(si no es la que más)**, ya que nos permite realizar referencias a otras páginas web o recursos como documentos, imágenes, videos, etc. Estas referencias se suelen denominar enlaces, vínculos o hipervínculos. Para ello, tenemos que indicar la URL de la dirección del recurso a enlazar y el texto o contenido que vamos a convertir en enlazable.
 
+<p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="xxeoVPN" data-pen-title="Galeria Instagram" data-user="Luis-Enrique-Calero-Anchelia" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/Luis-Enrique-Calero-Anchelia/pen/xxeoVPN">
+  Galeria Instagram</a> by Luis Enrique Calero Anchelia (<a href="https://codepen.io/Luis-Enrique-Calero-Anchelia">@Luis-Enrique-Calero-Anchelia</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## El atributo `href`
 

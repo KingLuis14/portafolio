@@ -2,40 +2,38 @@
 import { getCollection } from "astro:content";
 const blogEntries = await getCollection("html");
 
-
 import Articulos from "../../components/Articulos.astro";
 import Layout from "../../layout/Layout.astro";
+import HeroHtml from "../../sections/HeroHtml.astro";
 ---
 
-<Layout title="html" description="Articulos del curso de Html por Enrique Calero">
-    <section data-wrapper="true">
+<Layout
+    title="html"
+    description="Articulos del curso de Html por Enrique Calero"
+>
+    <HeroHtml />
+    <section class="wrapper-layout padding-section">
+        <header>
+            <h2 class="title-section text-center">Articulos</h2>
+        </header>
         <ul class="Articles-Container">
-        {
-            blogEntries.map((entry) =>{
-                
-                return <li >
-                    <Articulos {...entry.data} slug={entry.slug}/>
-                </li>
-                
-            })
-        }
+            {
+                blogEntries.map((entry) => {
+                    return (
+                        <li>
+                            <Articulos {...entry.data} slug={entry.slug} />
+                        </li>
+                    );
+                })
+            }
         </ul>
-
-        
     </section>
 </Layout>
 
 <style>
-
-    section{
-        padding-block: 0;
-    padding-top: calc(var(--alto-header) + 1.5rem);
-    }
-    .Articles-Container{
-    
+    .Articles-Container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%),1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
         gap: 1.3rem;
-        
     }
 </style>
