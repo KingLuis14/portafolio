@@ -13,7 +13,7 @@ import { Icon } from "astro-icon/components";
         </header>
         <p class="color-primary-100">CSS es un estándar que sirve para definir la estructura y el contenido de una pagina web</p>
         <footer class="hero-html__panelBoton">
-            <a href="#Formulario" class="boton--primary"
+            <a href="#Articulos" class="boton--primary"
                 >Aprende</a
             >
         </footer>
@@ -69,21 +69,13 @@ import { Icon } from "astro-icon/components";
         }
 
         &__icon{
-            margin-top: auto;
             grid-area: logo;
-            place-content: center;
-
-            [data-icon="Html"] {
-                width: 40%;
-                margin-inline: auto;
-
-                @include media-Query(tablet) {
-                    width: 80%;
-            }
-            }
+            display: grid;
+            align-items: end;
+           
 
             @include media-Query(tablet) {
-                margin-top: 0;
+                align-items: center;
             }
         }
 

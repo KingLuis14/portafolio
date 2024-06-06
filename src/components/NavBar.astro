@@ -1,26 +1,68 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Item {
+    item: string;
+    url: string;
+    child?: Item[]; 
+}
+
 interface Props {
-    ArrayItems: { item: string; url: string }[];
+    ArrayItems: Item[];
 }
 
 const { ArrayItems } = Astro.props;
 ---
 
 <header class="bg-color-primary-950">
-    <div class="header-wrapper | wrapper-layout" data-overlay="false" id="Navbar-Overlay">
+    <div
+        class="header-wrapper | wrapper-layout"
+        data-overlay="false"
+        id="Navbar-Overlay"
+    >
         <a href="/">
             <img class="Logo" src="/Dev.svg" alt="logo enrique calero" />
         </a>
-        <nav class="Navbar | bg-color-primary-950" aria-expanded="false" id="Navbar-main">
+        <nav
+            class="Navbar | bg-color-primary-950"
+            aria-expanded="false"
+            id="Navbar-main"
+        >
             <ul class="Navbar__list">
                 {
-                    ArrayItems.map(({ item, url }) => {
+                    ArrayItems.map(({ item, url, child }) => {
                         return (
                             <li class="Navbar__item">
-                                <a class="Navbar__link | color-neutral-000" href={`${url}`}>
-                                    {item}
-                                </a>
+                                {
+                                    child && child.length > 0 ? (
+                                        <span class="Navbar__link | color-neutral-000" style="user-select: none;">
+                                            {item}
+                                        </span>
+                                    ) : (
+                                        <a class="Navbar__link | color-neutral-000" href={`${url}`}>
+                                            {item}
+                                        </a>
+                                    )
+                                }
+                                {
+                                    child && child.length > 0 && 
+                                        (
+                                            <div class="subNavbar-wrapper" aria-expanded="false">
+                                                <ul class="Navbar__list subNavbar">
+                                                
+                                                    {child.map(({ item, url }) =>{
+                                                        return (
+                                                            <li class="Navbar__item | fs-small">
+                                                                <a class="Navbar__link | color-neutral-000" href={`${url}`}>
+                                                                    {item}
+                                                                </a>
+                                                            </li>
+                                                        )})
+                                                    }
+                                                </ul>
+                                            </div>
+                                        )
+                                }
                             </li>
                         );
                     })
@@ -37,8 +79,7 @@ const { ArrayItems } = Astro.props;
 </header>
 
 <style lang="scss">
-
-    @use '../scss/settings/' as *;
+    @use "../scss/settings/" as *;
     $breakpoint: 768px;
 
     header {
@@ -53,7 +94,6 @@ const { ArrayItems } = Astro.props;
     }
 
     .header-wrapper {
-        
         display: flex;
         justify-content: space-between;
 
@@ -89,9 +129,39 @@ const { ArrayItems } = Astro.props;
             transform: translateX(0);
         }
 
+        &__item{
+            position: relative;
+
+            @include media-Query(tablet) {
+                &:hover > div .subNavbar{
+                    display: flex;
+                }
+            }
+            
+        }
+
         &__list {
             display: flex;
             flex-direction: column;
+
+            &.subNavbar{
+                overflow: hidden;
+
+                @include media-Query(tablet) {
+                    position: absolute;
+                    overflow: visible;
+                    top: 100%;
+                    display: none;
+                    flex-direction: column;
+                    gap: 0;
+                    align-items: start;
+                    background-color: $color-primary-950;
+                    border: 1px solid rgba(255, 255, 255, 0.144);
+                    height: auto;
+                }
+
+                
+            }
 
             @include media-Query(tablet) {
                 flex-direction: row;
@@ -106,9 +176,8 @@ const { ArrayItems } = Astro.props;
             padding: 1em;
             font-weight: 400;
             @include media-Query(tablet) {
-                padding: .5em 1em;
+                padding: 0.5em 1em;
             }
-
         }
 
         @media (width > $breakpoint) {
@@ -120,6 +189,16 @@ const { ArrayItems } = Astro.props;
             background-color: transparent;
             color: white;
             padding: 0;
+        }
+    }
+
+    .subNavbar-wrapper{
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows .5s;
+
+        &[aria-expanded="true"]{
+            grid-template-rows: 1fr;
         }
     }
 
@@ -176,7 +255,21 @@ const { ArrayItems } = Astro.props;
         const $BtnToogle = document.getElementById("btn-Toogle");
         const $BtnClose = document.getElementById("btn-Close");
         const $NavbarMain = document.getElementById("Navbar-main");
+        const $NavbarItem = $NavbarMain.querySelectorAll(".Navbar__item");
         const $NavbarOverlay = document.getElementById("Navbar-Overlay");
+        const $SubNavbarWrapper = document.querySelector(".subNavbar-wrapper") as HTMLElement;
+
+        $NavbarMain.addEventListener('click' , (e)=>{
+            const $Element = e.target as HTMLElement;
+
+            if($Element.classList.contains("Navbar__link")){
+                const $subNavbar = $Element.nextElementSibling;
+                const isExpanded = $subNavbar.getAttribute('aria-expanded') === 'true';
+                $subNavbar.setAttribute("aria-expanded", isExpanded ? 'false' : 'true');
+                console.log($Element);
+            }
+            // $SubNavbarWrapper.setAttribute("aria-expanded", "true");
+        })
 
         $BtnToogle.addEventListener("click", () => {
             $NavbarOverlay.setAttribute("data-overlay", "true");
@@ -199,5 +292,4 @@ const { ArrayItems } = Astro.props;
             $NavbarMain.classList.remove("noTransition");
         });
     });
-
 </script>
