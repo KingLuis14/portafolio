@@ -10,7 +10,7 @@ indice: ['El elemento <nav>','Múltiples elementos <nav>']
 
 El elemento `<nav>` nos permite crear una sección que agrupe los enlaces de navegación por la página, es decir, una especie de `<div>` contenedor orientado a desplazarse por los diferentes lugares del sitio web.
 
-### Ejemplo
+#### Ejemplo
 
 ```html
 

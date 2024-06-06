@@ -1,12 +1,12 @@
 ---
 import type { CollectionEntry } from "astro:content";
-type Props = CollectionEntry<"html">["data"] & { slug: string };
+type Props = CollectionEntry<"html">["data"] & { slug: string , collection : string };
 
-const { imagenBlog, descriptionPage, slug, cardTitle } = Astro.props;
+const { imagenBlog, descriptionPage, slug, cardTitle , collection } = Astro.props;
 ---
 
 <article class="Article-Lenguage | bg-color-primary-800">
-    <a class="Article-Lenguage__header" href={`/html/${slug}`}>
+    <a class="Article-Lenguage__header" href={`/${collection}/${slug}`}>
         <img class="Article-Lenguage__poster" src={imagenBlog} alt="" />
     </a>
     <div class="Article-Lenguage__content text-flow">

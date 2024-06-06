@@ -43,11 +43,11 @@ import Layout from "./Layout.astro";
         word-break: break-word;
         padding-block: 0;
         
-        :global(code) {
+        :global(:is(h1,h2,h3, p) > code) {
             display: inline;
-            background-color: #24292e;
+            background-color: $color-primary-800;
             padding: .125rem .25rem;
-            color: #9ecbff;
+            color: $color-contrast-100;
             border-radius: .25rem;
         }
 
@@ -61,6 +61,10 @@ import Layout from "./Layout.astro";
         > :global(h2) {
             color: $color-neutral-000;
             font-size: $fs-title2;
+        }
+        > :global(h3) {
+            color: $color-neutral-000;
+            font-size: $fs-title3;
         }
     }
 
@@ -89,12 +93,12 @@ document.addEventListener("astro:page-load", function () {
 
 
     const $titleIndice = document.querySelectorAll(
-        ".Contenido > h2,.Contenido > h3",
+        ".Contenido > h1 , .Contenido > h2,.Contenido > h3",
     );
     const $linksIndice = document.querySelectorAll(".navIndice__link");
 
     const options = {
-        rootMargin: "0px 0px -50% 0px",
+        rootMargin: "0px 0px -60% 0px",
         threshold: 1,
     };
     const observerIndice = new IntersectionObserver((entries, observer) => {

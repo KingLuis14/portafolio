@@ -1,17 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-const blogEntries = await getCollection("html");
+const blogEntries = await getCollection("css");
 
 import Articulos from "../../components/Articulos.astro";
 import Layout from "../../layout/Layout.astro";
-import HeroHtml from "../../sections/HeroHtml.astro";
+import HeroCss from "../../sections/HeroCss.astro";
 ---
 
 <Layout
     title={`${blogEntries[0].collection}`}
     description="Articulos del curso de Html por Enrique Calero"
 >
-    <HeroHtml />
+    <HeroCss />
     <section class="wrapper-layout padding-section">
         <header>
             <h2 class="title-section text-center">Articulos</h2>

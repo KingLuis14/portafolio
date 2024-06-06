@@ -3,7 +3,6 @@ titlePage: "html-listas"
 descriptionPage: "Las listas no enumeradas se crean mediante la etiqueta contenedora <ul> (unorderer list). Esta etiqueta contendrá una serie de elementos <li> donde cada uno de ellos contendrá la información de uno de los puntos de la lista:"
 cardTitle : "Los elementos de lista"
 imagenBlog: "https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg"
-indice: ['El elemento <ul>','El elemento <li>','El elemento <ol>']
 
 ---
 

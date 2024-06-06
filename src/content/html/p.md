@@ -3,7 +3,6 @@ titlePage: "html-p"
 descriptionPage: "El elemento <p> en HTML5 es un elemento básico y esencial para la creación de contenido en una página web. Representa un párrafo de texto y se utiliza para separar bloques de texto en una página."
 cardTitle : "El elemento <p>"
 imagenBlog: "https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg"
-indice: ['El elemento <p>','El atributo style','El atributo class','El atributo id']
 
 ---
 

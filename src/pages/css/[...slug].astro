@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import BlogLayout from "../../layout/BlogLayout.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("html");
+  const blogEntries = await getCollection("css");
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -13,7 +13,6 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { descriptionPage } = entry.data;
 const { Content , headings} = await entry.render();
-
 
 ---
 
