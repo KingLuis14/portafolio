@@ -16,7 +16,7 @@ import HeroCss from "../../sections/HeroCss.astro";
         <header>
             <h2 class="title-section text-center" id="Articulos">Articulos</h2>
         </header>
-        <ul class="Articles-Container">
+        <ul class="Articles-Container | grid-columns">
             {
                 blogEntries.map((entry) => {
                     return (
@@ -32,8 +32,8 @@ import HeroCss from "../../sections/HeroCss.astro";
 
 <style>
     .Articles-Container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-        gap: 1.3rem;
+        /* display: grid; */
+        /* grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); */
+        /* gap: 1.3rem; */
     }
 </style>
