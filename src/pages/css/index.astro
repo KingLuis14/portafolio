@@ -30,10 +30,18 @@ import HeroCss from "../../sections/HeroCss.astro";
     </section>
 </Layout>
 
-<style>
+<style lang="scss" >
+
+@use "../../scss/settings/" as *;
     .Articles-Container {
-        /* display: grid; */
-        /* grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); */
-        /* gap: 1.3rem; */
+
+        --_columns : 1;
+
+        @include media-Query(tablet) {
+            --_columns : 2;
+        }
+        @include media-Query(desktop) {
+            --_columns : 3;
+        }
     }
 </style>
