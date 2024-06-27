@@ -1,8 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
-type Props = CollectionEntry<"html">["data"] & { slug: string , collection : string };
+type Props = CollectionEntry<"blog">["data"] & { slug: string , collection : string };
 
-const { imagenBlog, descriptionPage, slug, cardTitle , collection } = Astro.props;
+const { imagenBlog, descriptionPage, slug, cardTitle , collection , pubDate} = Astro.props;
 ---
 
 <article class="Article-Lenguage | bg-color-primary-800">
@@ -26,7 +26,7 @@ const { imagenBlog, descriptionPage, slug, cardTitle , collection } = Astro.prop
             </picture>
             <div>
                 <p class="Article-Lenguage__autor | fs-small color-contrast-100">Enrique Calero</p>
-                <p class="Article-Lenguage__date | fs-small">09/04/2024</p>
+                <p class="Article-Lenguage__date | fs-small">{pubDate.toLocaleDateString('es-ES', {year: 'numeric', month: 'long', day: '2-digit' })}</p>
             </div>
         </footer>
     </div>

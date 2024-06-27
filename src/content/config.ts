@@ -1,25 +1,20 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
-const html = defineCollection({
+const blogCollection= defineCollection({
     type: 'content',
     schema: z.object({
         titlePage: z.string(),
         descriptionPage: z.string(),
         imagenBlog: z.string(),
         cardTitle: z.string(),
+        pubDate: z.coerce.date(),
+        tags: z.enum(['html', 'css', 'javascript']).array(),
+        postReference : z.array(reference('blog')).optional(),
     })
 });
 
-const css = defineCollection({
-    type: 'content',
-    schema: z.object({
-        titlePage: z.string(),
-        descriptionPage: z.string(),
-        imagenBlog: z.string(),
-        cardTitle: z.string(),
-    })
-});
+
 
 export const collections = {
-    html, css
+    'blog': blogCollection,
   };

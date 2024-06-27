@@ -3,6 +3,9 @@ titlePage: "html-img"
 descriptionPage: "Los elementos <h1>...<h6> elementos HTML representan seis niveles de encabezados de sección. es el nivel de sección más alto y es el más bajo. De forma predeterminada, todos los elementos de encabezado crean un cuadro a nivel de bloque en el diseño, comenzando en una nueva línea y ocupando todo el ancho disponible en el bloque que los contiene"
 cardTitle : "Los elementos de encabezado"
 imagenBlog: "https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg"
+tags: ['html']
+postReference: ['nav', 'p']
+pubDate: 'Mayo 09 2024'
 ---
 
 # Los Elementos de Encabezados

@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+const wrapper = {
+    defaultClass: "wrapper",
+    variants: {
+        large: "wrapper--lg",
+        medium: "wrapper--sm",
+    },
+    align: {
+        left: "text-start",
+        center: "text-center",
+        end: "text-end",
+    },
+    colors: {
+        black: "color-black-000",
+        white: "color-white-000",
+        green: "color-green-500",
+    },
+};
+
+interface Props extends HTMLAttributes<"div"> {
+    variant?: keyof typeof wrapper.variants;
+    align?: keyof typeof wrapper.align;
+    colors?: keyof typeof wrapper.colors;
+    classBlock?: string;
+}
+
+const { variant = "large", classBlock, align, colors, ...attrs } = Astro.props;
+---
+
+<div
+    class:list={[
+        wrapper.defaultClass,
+        classBlock,
+        wrapper.variants[variant],
+        wrapper.align[align],
+        wrapper.colors[colors],
+    ]}
+    {...attrs}
+>
+    <slot />
+</div>

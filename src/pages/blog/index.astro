@@ -1,0 +1,75 @@
+---
+import { getCollection } from "astro:content";
+import Articulos from "../../components/Articulos.astro";
+import Layout from "../../layout/Layout.astro";
+import HeroHtml from "../../sections/HeroHtml.astro";
+const blogEntries = await getCollection("blog");
+
+type TagType = "html" | "css" | "javascript";
+
+async function filterByTag(tag: TagType) {
+    return (
+        await getCollection("blog", ({ data }) => data.tags.includes(tag))
+    ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+}
+
+async function generateFilteredArray() {
+    const tags: TagType[] = ["html", "css", "javascript"];
+
+    const filteredEntries = await Promise.all(
+        tags.map(async (tag) => {
+            const posts = await filterByTag(tag);
+            return posts.length > 0 ? { tag, posts } : null;
+        }),
+    );
+
+    return filteredEntries.filter((entry) => entry !== null);
+}
+
+const FilterPost = await generateFilteredArray();
+---
+
+<Layout
+    title={`${blogEntries[0].collection}`}
+    description="Articulos del curso de Html por Enrique Calero"
+>
+    <HeroHtml />
+    {
+        FilterPost.map(({ tag, posts }) => (
+            <section class="wrapper-layout padding-section">
+                <header>
+                    <h2 class="title-section text-center" id="Articulos">
+                        Aprende {tag}
+                    </h2>
+                </header>
+                <ul class="Articles-Container | grid-columns">
+                    {posts.map((entry) => {
+                        return (
+                            <li>
+                                <Articulos
+                                    {...entry.data}
+                                    slug={entry.slug}
+                                    collection={entry.collection}
+                                />
+                            </li>
+                        );
+                    })}
+                </ul>
+            </section>
+        ))
+    }
+</Layout>
+
+<style lang="scss">
+    @use "../../scss/settings/" as *;
+    .Articles-Container {
+        --_columns: 1;
+
+        @include media-Query(tablet) {
+            --_columns: 2;
+        }
+        @include media-Query(desktop) {
+            --_columns: 3;
+        }
+    }
+</style>

@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+const sectionPage = {
+    defaultClass: "section-page",
+    variants: {
+        theme1: "padding-section bg-color-blue-100",
+        theme2: "padding-section bg-color-white-000",
+        footer: "bg-color-blue-900",
+
+    }
+};
+
+interface Props extends HTMLAttributes<"section"> {
+    variant?: keyof typeof sectionPage.variants;
+}
+
+const { variant = 'theme1', ...attrs } = Astro.props;
+---
+
+<section class:list={[sectionPage.defaultClass, sectionPage.variants[variant]]} {...attrs}>
+    <slot />
+</section>

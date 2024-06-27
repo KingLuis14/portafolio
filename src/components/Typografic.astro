@@ -1,0 +1,53 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+
+const typogtafic = {
+    defaultClass: "wrapper",
+    variants: {
+        colorBlack: "color-black-100",
+        colorWhite: "color-white-000",
+        colorBlue: "color-blue-800",
+    },
+    size: {
+        superTitle: 'fs-superTitle line-heigth',
+        titleSection: 'fs-title1 line-heigth padding-section-bottom',
+        title1: 'fs-title1 line-heigth',
+        title2: 'fs-title2',
+        title3: 'fs-title3',
+        normal: 'fs-normal',
+        small: 'fs-small',
+    },
+    align : {
+        left: 'text-start',
+        center: 'text-center',
+        end: 'text-end',
+    },
+    weigth : {
+        "400" : 'fw-400',
+        "500" : 'fw-500',
+        "600" : 'fw-600',
+        "700" : 'fw-700',
+        "800" : 'fw-800',
+    }
+};
+
+type TypographicVariants = keyof typeof typogtafic.variants;
+type SizeVariants = keyof typeof typogtafic.size;
+type AlignVariants = keyof typeof typogtafic.align;
+type WeigthVariants = keyof typeof typogtafic.weigth;
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+    as: Tag;
+    variant?: TypographicVariants ;
+    size? : SizeVariants;
+    aling? : AlignVariants ;
+    weigth? : WeigthVariants ;
+    classBlock? : string;
+}>;
+
+const { as: Tag, variant, size, aling , weigth, classBlock, ...props } = Astro.props as Props<HTMLTag>;
+---
+
+<Tag class:list={[classBlock ,typogtafic.variants[variant] , typogtafic.size[size] , typogtafic.align[aling] , typogtafic.weigth[weigth]]}  {...props} >
+    <slot/>
+</Tag>
