@@ -1,0 +1,50 @@
+{
+    "frontMatter.taxonomy.contentTypes": [
+        {
+            "name": "default",
+            "pageBundle": false,
+            "fields": [
+                {
+                    "title": "titlePage",
+                    "name": "titlePage",
+                    "type": "string"
+                },
+                {
+                    "title": "descriptionPage",
+                    "name": "descriptionPage",
+                    "type": "string"
+                },
+                {
+                    "title": "cardTitle",
+                    "name": "cardTitle",
+                    "type": "string"
+                },
+                {
+                    "title": "imagenBlog",
+                    "name": "imagenBlog",
+                    "type": "image"
+                },
+                {
+                    "title": "tags",
+                    "name": "tags",
+                    "type": "tags"
+                },
+                {
+                    "title": "pubDate",
+                    "name": "pubDate",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "frontMatter.framework.id": "astro",
+    "frontMatter.preview.host": "http://localhost:4321",
+    "frontMatter.content.pageFolders": [
+        {
+            "title": "blog",
+            "path": "[[workspace]]/D:/Usuarios/enrique actual/Desktop/astro/portafolio-web/src/content/blog"
+        }
+    ],
+    "frontMatter.content.publicFolder": "public",
+    "frontMatter.git.enabled": true
+}
