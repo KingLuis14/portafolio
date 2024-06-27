@@ -1,11 +1,14 @@
 ---
-titlePage: "html-img"
-descriptionPage: "Un tipo de recurso muy frecuente en nuestras páginas son las imágenes. Las imágenes son importantísimas para conseguir que nuestra página se vea bien y sea agradable (si son imágenes de decoración) o ayude a mostrar y ejemplificar lo que escribimos en ella (si son imágenes de contenido)."
-cardTitle : "El elemento <header>"
-imagenBlog: "https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg"
-tags: ['html']
-postReference: ['headings', 'p']
-pubDate: 'Julio 02 2024'
+titlePage: html-img
+descriptionPage: Un tipo de recurso muy frecuente en nuestras páginas son las imágenes. Las imágenes son importantísimas para conseguir que nuestra página se vea bien y sea agradable (si son imágenes de decoración) o ayude a mostrar y ejemplificar lo que escribimos en ella (si son imágenes de contenido).
+cardTitle: El elemento <header>
+imagenBlog: https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg
+tags:
+    - html
+postReference:
+    - headings
+    - p
+pubDate: Julio 02 2024
 ---
 
 # El Elemento `<header>`
@@ -65,4 +68,3 @@ No obstante, aunque en el ejemplo anterior hemos definido una elementoseta `<hea
 
 
 - [elementoseta header MDN](https://developer.mozilla.org/es/docs/Web/HTML/Element/header)
-

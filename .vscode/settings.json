@@ -1,10 +1,3 @@
 {
-    "frontMatter.content.pageFolders": [
-        {
-            "title": "blog",
-            "path": "[[workspace]]/D:/Usuarios/enrique actual/Desktop/astro/portafolio-web/src/content/blog"
-        }
-    ],
-    "frontMatter.content.publicFolder": "public",
-    "frontMatter.git.enabled": true
+    "frontMatter.content.publicFolder": "public"
 }

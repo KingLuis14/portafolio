@@ -7,45 +7,81 @@
       "previewPath": null,
       "fields": [
         {
-          "title": "Title",
-          "name": "title",
+          "title": "titlePage",
+          "name": "titlePage",
           "type": "string"
         },
         {
-          "title": "Description",
-          "name": "description",
+          "title": "descriptionPage",
+          "name": "descriptionPage",
           "type": "string"
         },
         {
-          "title": "Publishing date",
-          "name": "date",
-          "type": "datetime",
-          "default": "{{now}}",
-          "isPublishDate": true
+          "title": "cardTitle",
+          "name": "cardTitle",
+          "type": "string"
         },
         {
-          "title": "Content preview",
-          "name": "preview",
+          "title": "imagenBlog",
+          "name": "imagenBlog",
           "type": "image"
         },
         {
-          "title": "Is in draft",
-          "name": "draft",
-          "type": "draft"
-        },
-        {
-          "title": "Tags",
+          "title": "tags",
           "name": "tags",
           "type": "tags"
         },
         {
-          "title": "Categories",
-          "name": "categories",
-          "type": "categories"
+          "title": "pubDate",
+          "name": "pubDate",
+          "type": "datetime"
+        }
+      ]
+    },
+    {
+      "name": "blog",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "titlePage",
+          "name": "titlePage",
+          "type": "string"
+        },
+        {
+          "title": "descriptionPage",
+          "name": "descriptionPage",
+          "type": "string"
+        },
+        {
+          "title": "cardTitle",
+          "name": "cardTitle",
+          "type": "string"
+        },
+        {
+          "title": "imagenBlog",
+          "name": "imagenBlog",
+          "type": "image"
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "pubDate",
+          "name": "pubDate",
+          "type": "datetime"
         }
       ]
     }
   ],
   "frontMatter.framework.id": "astro",
-  "frontMatter.preview.host": "http://localhost:4321"
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/D:/Usuarios/enrique actual/Desktop/astro/portafolio-web/src/content/blog"
+    }
+  ],
+  "frontMatter.git.enabled": true
 }
