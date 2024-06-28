@@ -1,10 +1,20 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog"
+    }
+  ],
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "default",
       "pageBundle": false,
-      "previewPath": null,
+      "previewPath": "'blog'",
+      "filePrefix": null,
       "fields": [
         {
           "title": "titlePage",
@@ -30,6 +40,15 @@
           "title": "tags",
           "name": "tags",
           "type": "tags"
+        },
+        {
+          "title": "postReference",
+          "name": "postReference",
+          "type": "choice",
+          "choices": [
+            "img",
+            "listas"
+          ]
         },
         {
           "title": "pubDate",
@@ -40,7 +59,9 @@
     },
     {
       "name": "blog",
+      "previewPath": "'blog'",
       "pageBundle": false,
+      "filePrefix": null,
       "fields": [
         {
           "title": "titlePage",
@@ -68,20 +89,21 @@
           "type": "tags"
         },
         {
+          "title": "postReference",
+          "name": "postReference",
+          "type": "list"
+        },
+        {
           "title": "pubDate",
           "name": "pubDate",
           "type": "datetime"
+        },
+        {
+          "title": "type",
+          "name": "type",
+          "type": "string"
         }
       ]
     }
-  ],
-  "frontMatter.framework.id": "astro",
-  "frontMatter.preview.host": "http://localhost:4321",
-  "frontMatter.content.pageFolders": [
-    {
-      "title": "blog",
-      "path": "[[workspace]]/D:/Usuarios/enrique actual/Desktop/astro/portafolio-web/src/content/blog"
-    }
-  ],
-  "frontMatter.git.enabled": true
+  ]
 }

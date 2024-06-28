@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Articulos from "../../components/Articulos.astro";
 import Layout from "../../layout/Layout.astro";
 import HeroHtml from "../../sections/HeroHtml.astro";
+import { Icon } from "astro-icon/components";
 const blogEntries = await getCollection("blog");
 
 type TagType = "html" | "css" | "javascript";
@@ -36,40 +37,35 @@ const FilterPost = await generateFilteredArray();
     <HeroHtml />
     {
         FilterPost.map(({ tag, posts }) => (
-            <section class="wrapper-layout padding-section">
+            <section id={`section-${tag.toLocaleLowerCase()}`} class="wrapper-layout padding-section">
                 <header>
                     <h2 class="title-section text-center" id="Articulos">
                         Aprende {tag}
                     </h2>
                 </header>
-                <ul class="Articles-Container | grid-columns">
-                    {posts.map((entry) => {
-                        return (
-                            <li>
-                                <Articulos
-                                    {...entry.data}
-                                    slug={entry.slug}
-                                    collection={entry.collection}
-                                />
-                            </li>
-                        );
-                    })}
-                </ul>
+                <div class="carrusel-blogs">
+                    <button class="carrusel-blogs__btnPrev">
+                        <Icon name="ArrowIcon" size={18} />
+                    </button>
+                    <ul class="carrusel-blogs__track">
+                        {posts.map((entry) => {
+                            return (
+                                <li>
+                                    <Articulos
+                                        {...entry.data}
+                                        slug={entry.slug}
+                                        collection={entry.collection}
+                                    />
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    <button class="carrusel-blogs__btnNext">
+                        <Icon name="ArrowIcon" size={18} />
+                    </button>
+                </div>
             </section>
         ))
     }
 </Layout>
 
-<style lang="scss">
-    @use "../../scss/settings/" as *;
-    .Articles-Container {
-        --_columns: 1;
-
-        @include media-Query(tablet) {
-            --_columns: 2;
-        }
-        @include media-Query(desktop) {
-            --_columns: 3;
-        }
-    }
-</style>

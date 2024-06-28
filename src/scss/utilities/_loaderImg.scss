@@ -1,0 +1,33 @@
+.lazy-picture{
+    position: relative;
+
+    &.animation-loader{
+
+        background-color: #acb9c2;
+        animation: loader 1.5s infinite alternate;
+    }
+    
+    &::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #e2eaef;
+       
+    }
+
+    &.loaderOk::before{
+        content: none;
+    }
+}
+
+@keyframes loader {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

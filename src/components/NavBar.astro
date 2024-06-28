@@ -35,9 +35,9 @@ const { ArrayItems } = Astro.props;
                             <li class="Navbar__item">
                                 {
                                     child && child.length > 0 ? (
-                                        <span class="Navbar__link | color-neutral-000" style="user-select: none;">
+                                        <a class="Navbar__link | color-neutral-000" style="user-select: none;" href={`${url}`}>
                                             {item}
-                                        </span>
+                                        </a>
                                     ) : (
                                         <a class="Navbar__link | color-neutral-000" href={`${url}`}>
                                             {item}

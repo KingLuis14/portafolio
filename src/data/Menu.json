@@ -1,19 +1,19 @@
 [
     {
-        "item": "Articulos",
-        "url": "/html/",
+        "item": "Blog",
+        "url": "/blog/",
         "child" : [
             {
                 "item": "html",
-                "url": "/html/"
+                "url": "/blog/#section-html"
             },
             {
                 "item": "css",
-                "url": "/css/"
+                "url": "/blog/#section-css"
             },
             {
                 "item": "JavaScript",
-                "url": "/JavaScript/"
+                "url": "/blog/#section-javascript"
             }
         ]
     },

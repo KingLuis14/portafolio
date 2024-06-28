@@ -1,13 +1,15 @@
 ---
-titlePage: "html-a"
-descriptionPage: "El elemento <a> es uno de los más importantes de HTML (si no es la que más), ya que nos permite realizar referencias a otras páginas web o recursos como documentos, imágenes, videos, etc. Estas referencias se suelen denominar enlaces, vínculos o hipervínculos. Para ello, tenemos que indicar la URL de la dirección del recurso a enlazar y el texto o contenido que vamos a convertir en enlazable."
-cardTitle : "El elemento <a>"
-imagenBlog: "https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg"
-tags: ['html']
-postReference: ['img', 'listas']
-pubDate: 'Julio 02 2024'
-
-
+titlePage: html-a
+descriptionPage: El elemento <a> es uno de los más importantes de HTML (si no es la que más), ya que nos permite realizar referencias a otras páginas web o recursos como documentos, imágenes, videos, etc. Estas referencias se suelen denominar enlaces, vínculos o hipervínculos. Para ello, tenemos que indicar la URL de la dirección del recurso a enlazar y el texto o contenido que vamos a convertir en enlazable.
+cardTitle: El elemento <a>
+imagenBlog: https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg
+tags:
+   - html
+postReference:
+   - img
+   - listas
+pubDate: Julio 02 2024
+type: blog
 ---
 
 # El elemento `<a>`

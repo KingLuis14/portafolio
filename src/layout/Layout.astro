@@ -47,7 +47,16 @@ const { title, description } = Astro.props;
 <style is:global lang="scss">
 
     @use '../scss/base' as * ;
-    @use '../scss/utilities' as *;
+    @use '../scss/components' as *;
     @use '../scss/layouts' as *;
+    @use '../scss/utilities' as *;
     
 </style>
+
+<script>
+    import { carruselProduct } from "../scripts/Carrusel-Product";
+
+    document.addEventListener("astro:page-load", () => {
+        carruselProduct();
+    })
+</script>

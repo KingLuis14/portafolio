@@ -11,13 +11,13 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { descriptionPage } = entry.data;
+const { descriptionPage , titlePage} = entry.data;
 const { Content , headings} = await entry.render();
 
 ---
 
-<BlogLayout description={descriptionPage} title="xdxd">
-  <Content/>
+<BlogLayout description={descriptionPage} title={titlePage}>
+  <Content />
   <Fragment slot="mapa">
     <h4 class="color-neutral-000">En esta Página</h4>
     <nav class="navIndice">

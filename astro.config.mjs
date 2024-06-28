@@ -12,5 +12,13 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  integrations: [icon(), react(), sitemap(), mdx(), purgecss()]
+  integrations: [icon(), react(), sitemap(), mdx(), purgecss()],
+  markdown: {
+    shikiConfig: {
+      theme: 'dracula',
+      langs: [],
+      wrap: true,
+      transformers: [],
+    },
+  }
 });
