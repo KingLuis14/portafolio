@@ -1,0 +1,150 @@
+---
+titlePage: elementos y display
+descriptionPage: Una etiqueta de línea es aquella que ocupa el espacio mínimo necesario en horizontal, y permite que otro elemento se coloque a su lado. En cambio una etiqueta de bloque, ocupa todo el ancho disponible y no permite que otro elemento se coloque a su lado (aunque aparentemente tenga lugar suficiente).
+cardTitle: Elementos de Bloque, Linea y Hibrido
+imagenBlog: "https://miro.medium.com/v2/resize:fit:1100/1*f2i47G95nVCx71KzM1iXlg.png"
+tags:
+    - css
+postReference: ["box-model"]
+pubDate: 2024-06-28T20:10:59.664Z
+type: blog
+---
+import PictureImg from "@/components/PictureImg.astro";
+export const Block = {
+    imgName: "inline-block",
+    alt: "juego-21",
+    type: ["avif", "webp"],
+    get imagen() {
+        return this.type.map((ty) => {
+            return { url: `${this.imgName}.${ty}`, type: ty };
+        });
+    }
+};
+
+export const Inline = {
+    imgName: "inline",
+    alt: "juego-21",
+    type: ["avif", "webp"],
+    get imagen() {
+        return this.type.map((ty) => {
+            return { url: `${this.imgName}.${ty}`, type: ty };
+        });
+    }
+};
+
+export const DisplayConfig = {
+    imgName: "display-config",
+    alt: "juego-21",
+    type: ["avif", "webp"],
+    get imagen() {
+        return this.type.map((ty) => {
+            return { url: `${this.imgName}.${ty}`, type: ty };
+        });
+    }
+};
+
+export const InlineBlock = {
+    imgName: "img-inline-block",
+    alt: "juego-21",
+    type: ["avif", "webp"],
+    get imagen() {
+        return this.type.map((ty) => {
+            return { url: `${this.imgName}.${ty}`, type: ty };
+        });
+    }
+};
+
+
+# Elementos de Bloque, Linea y Hibrido
+
+## Elementos de Bloque
+
+Display: block
+
+- Crean una nueva linea para cada elemento
+- Ocupan todo el espacio horizontal disponible
+- Tienen ancho y alto.
+
+```css
+    h1{
+    background-color: rgb(252, 27, 72);
+    /* display: block;  por defecto*/
+}
+
+p{
+    background-color: yellow;
+    /* display: block;  por defecto*/
+}
+
+```
+
+<PictureImg {...Block} aspectRatio="Auto"/>
+
+## Elementos de Linea
+
+Display: Inline
+
+- No crean nuevas líneas para cada elemento
+- No tienen ancho ni alto
+- Se ajustan al contenido
+
+```css
+    span{
+    background-color: rgb(27, 197, 27);
+    /* display: inline; por defecto*/
+}
+```
+<PictureImg {...Inline} aspectRatio="Auto"/>
+
+## Propiedad Display
+
+Esta propiedad puede ser : inline | block | inline-block | none | flex | grid
+
+### Display Inline y block 
+
+#### Ejemplo
+
+```css
+    h1{
+    background-color: rgb(252, 27, 72);
+    display: inline;
+}
+
+p{
+    background-color: yellow;
+    display: inline;
+}
+
+span{
+    background-color: rgb(27, 197, 27);
+    display: block;
+}
+```
+
+<PictureImg {...DisplayConfig} aspectRatio="Auto"/>
+
+### Display None 
+
+#### Ejemplo
+
+```css
+    h1{
+    background-color: rgb(252, 27, 72);
+    display: none;
+}
+```
+
+### Display Inline block 
+
+##### Ejemplo
+
+```css
+   img{
+    display: inline-block;
+    width: 150px;
+}
+```
+
+<PictureImg {...InlineBlock} aspectRatio="Auto"/>
+
+

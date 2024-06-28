@@ -1,0 +1,51 @@
+@use '../settings/' as *;
+
+
+.grid{
+    display: grid;
+    gap: 1rem;
+}
+
+@for $i from 1 through 12{
+    .grid-col\:#{$i}{
+        grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+    }
+
+    @include media-Query(tablet){
+        .\@md\:grid-col\:#{$i}{
+            grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+        }
+    }
+    @include media-Query(desktop){
+        .\@lg\:grid-col\:#{$i}{
+            grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+        }
+    }
+}
+
+
+@for $i from 1 through 10{
+    .grid-cols\:#{$i}{
+        grid-column: span #{$i};
+    }
+    .grid-rows\:#{$i}{
+        grid-row: span #{$i};
+    }
+
+    @include media-Query(tablet){
+        .\@md\:grid-cols\:#{$i}{
+            grid-column: span #{$i};
+        }
+        .\@md\:grid-rows\:#{$i}{
+            grid-row: span #{$i};
+        }
+    }
+    @include media-Query(desktop){
+        .\@lg\:grid-cols\:#{$i}{
+            grid-column: span #{$i};
+        }
+        .\@lg\:grid-rows\:#{$i}{
+            grid-row: span #{$i};
+        }
+    }
+}

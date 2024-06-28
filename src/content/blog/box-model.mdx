@@ -1,11 +1,11 @@
 ---
-titlePage: margin
-descriptionPage: xd
-cardTitle: margin
-imagenBlog: /img/gato-mewing.jpeg
+titlePage: box model
+descriptionPage: El modelo de caja de CSS es un concepto fundamental que describe cómo se estructuran y se renderizan los elementos en una página web. Cada elemento se representa como una caja rectangular, y el modelo de caja proporciona un marco para entender y manipular estas cajas.
+cardTitle: Box Model css
+imagenBlog: https://miro.medium.com/v2/resize:fit:1100/1*f2i47G95nVCx71KzM1iXlg.png
 tags:
     - css
-postReference: []
+postReference: ["display"]
 pubDate: 2024-06-27T22:24:23.215Z
 type: blog
 ---
@@ -13,26 +13,9 @@ type: blog
 import Typografic from "@/components/Typografic.astro";
 import PictureImg from "@/components/PictureImg.astro";
 
-export const published = new Date('2024-01-01');
-export const authors = [
-	{ name: 'Jane', email: 'hi@jane.com' },
-	{ name: 'John', twitter: '@john2002' },
-];
-
-export const AboutNosotros = {
-    imgName: "juego-21",
-    alt: "juego-21",
-    type: ["avif", "webp"],
-    get imagen() {
-        return this.type.map((ty) => {
-            return { url: `${this.imgName}.${ty}`, type: ty };
-        });
-    }
-};
-
 # El Modelo de Caja de CSS
 
-![Texto alternativo](https://miro.medium.com/v2/resize:fit:408/1*sKnLrT1TtqWDZg7GWoBCow.png)
+![Texto alternativo](/img/box-model.webp)
 
 El modelo de caja de CSS es un concepto fundamental que describe cómo se estructuran y se renderizan los elementos en una página web. Cada elemento se representa como una caja rectangular, y el modelo de caja proporciona un marco para entender y manipular estas cajas.
 
@@ -50,6 +33,7 @@ element {
     height: 50px;
 }
 ```
+
 
 ### 2. Relleno (Padding)
 
@@ -98,39 +82,66 @@ element {
 Por defecto, el tamaño de la caja se calcula sumando el ancho del contenido, el relleno, el borde y los márgenes. Esto puede complicar el control del tamaño total del elemento.
 
 ```css
-element {
-    box-sizing: content-box; /* Valor por defecto */
+div{
+    background-color: rgb(252, 216, 11);
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    box-sizing: content-box; /* por defecto*/
 }
 ```
+
+export const contentBox = {
+    imgName: "content-box",
+    alt: "content box",
+    type: ["avif", "webp"],
+    get imagen() {
+        return this.type.map((ty) => {
+            return { url: `${this.imgName}.${ty}`, type: ty };
+        });
+    }
+};
+
+
+<PictureImg {...contentBox} aspectRatio="Auto"/>
 
 ### Modelo de Caja de Bordes
 
 El modelo de caja de bordes (border-box) incluye el contenido, el relleno y el borde en el ancho y alto especificados. Esto facilita el control del tamaño total del elemento.
 
 ```css
-element {
-    box-sizing: border-box;
-}
-```
-
-### Visualización del Modelo de Caja
-
-Para comprender mejor cómo se aplica el modelo de caja a un elemento, puedes usar herramientas de desarrollo en tu navegador (como las DevTools en Chrome) para inspeccionar los elementos y ver sus propiedades de modelo de caja.
-
-```css
-
-	element {
-    width: 200px;
+div{
+    background-color: rgb(252, 216, 11);
+    width: 100px;
     height: 100px;
     padding: 10px;
-    border: 5px solid #000;
-    margin: 20px;
     box-sizing: border-box;
 }
-
 ```
 
-<PictureImg {...AboutNosotros} aspectRatio="Video"/>
+export const borderBox = {
+    imgName: "border-box",
+    alt: "content box",
+    type: ["avif", "webp"],
+    get imagen() {
+        return this.type.map((ty) => {
+            return { url: `${this.imgName}.${ty}`, type: ty };
+        });
+    }
+};
+
+
+<PictureImg {...borderBox} aspectRatio="Auto"/>
+
+El `box-sizing: border-box;` se recomienda usarlo en en siguiente selector, para un reset basico para diseñar sitios webs, asi nos aseguramos que todos los elementos tengan el tamaño que le indicamos.
+
+```css
+*{
+    box-sizing: border-box;
+}
+```
+
+
 
 ### Recursos
 

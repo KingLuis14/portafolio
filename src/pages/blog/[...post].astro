@@ -1,7 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import BlogLayout from "../../layout/BlogLayout.astro";
-import PictureImg from "@/components/PictureImg.astro";
+import { getEntries } from "astro:content";
+import Articulos from "@/components/Articulos.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -12,35 +13,54 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { descriptionPage , titlePage} = entry.data;
-const { Content , headings} = await entry.render();
+const { descriptionPage, titlePage } = entry.data;
+const { Content, headings } = await entry.render();
 
+const postReference = entry.data.postReference
+  ? await getEntries(entry.data.postReference)
+  : [];
+// console.log(postReference.map((b) => b.data.titlePage));
 ---
 
 <BlogLayout description={descriptionPage} title={titlePage}>
-  <Content/>
-  <!-- <PictureImg aspectRatio="Auto" ></PictureImg> -->
+  <Content />
   <Fragment slot="mapa">
     <h4 class="color-neutral-000">En esta Página</h4>
     <nav class="navIndice">
       {
-        headings.map(({slug, text}) => {
+        headings.map(({ slug, text }) => {
           return (
-              <a href={`#${slug}`} class="navIndice__link fs-small">{text}</a>
+            <a href={`#${slug}`} class="navIndice__link fs-small">
+              {text}
+            </a>
           );
         })
       }
-    </ul>
+    </nav>
   </Fragment>
-
+  { postReference.length > 0 && <h4>Articulos Relacionados</h4>}
+  <ul class="grid @md:grid-col:2">
+    {
+      postReference.map((entry) => {
+        return (
+          <li>
+            <Articulos
+              {...entry.data}
+              slug={entry.slug}
+              collection={entry.collection}
+            />
+          </li>
+        );
+      })
+    }
+  </ul>
 </BlogLayout>
 
 <style lang="scss">
   .navIndice {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
-    
+    gap: 0.5rem;
 
     &__link {
       display: block;

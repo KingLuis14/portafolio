@@ -1,5 +1,5 @@
 ---
-titlePage: "El elemento `<nav>`"
+titlePage: "nav"
 descriptionPage: "Un tipo de recurso muy frecuente en nuestras páginas son las imágenes. Las imágenes son importantísimas para conseguir que nuestra página se vea bien y sea agradable (si son imágenes de decoración) o ayude a mostrar y ejemplificar lo que escribimos en ella (si son imágenes de contenido)."
 cardTitle : "El elemento <nav>"
 imagenBlog: "https://e0.pxfuel.com/wallpapers/973/666/desktop-wallpaper-html-5.jpg"

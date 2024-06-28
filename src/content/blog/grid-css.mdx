@@ -1,0 +1,86 @@
+---
+titlePage: grid css
+descriptionPage: Grid es un sistema de diseño bidimensional que te permite crear layouts complejos de manera sencilla y eficiente.
+cardTitle: Css Grid
+imagenBlog: "https://miro.medium.com/v2/resize:fit:1100/1*f2i47G95nVCx71KzM1iXlg.png"
+tags:
+    - css
+postReference: ["box-model", "display"]
+pubDate: 2024-06-28T15:02:36.114Z
+type: blog
+---
+
+# Contenedor de CSS Grid
+
+Para empezar a usar CSS Grid, necesitas definir un contenedor de grid. Esto se hace aplicando la propiedad `display: grid;` a un elemento contenedor. Los elementos hijos de este contenedor se convertirán automáticamente en elementos de la cuadrícula (grid items).
+
+## Propiedades del Contenedor de Grid
+
+### Definir Filas y Columnas
+
+`grid-template-columns` y `grid-template-rows`: Estas propiedades definen el número de columnas y filas del grid, así como su tamaño. Puedes usar unidades como px, %, fr (fracción), auto, etc.
+
+```css
+    .grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr 100px;
+    grid-template-rows: auto 100px;
+}
+
+```
+
+En este ejemplo, la cuadrícula tiene tres columnas: la primera de 200px, la segunda ocupa el espacio restante (1fr), y la tercera de 100px. También tiene dos filas: la primera es automática (ajusta su altura según el contenido) y la segunda tiene una altura fija de 100px.
+
+### Espaciado entre Filas y Columnas
+
+`gap` Esta propiedad establece el espacio entre las filas y columnas de la cuadrícula. Puedes especificar row-gap y column-gap por separado o usar gap para ambas.
+
+```css
+   .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px 20px; /* 10px entre filas, 20px entre columnas */
+}
+
+```
+
+### Usando Areas 
+
+`grid-template-areas`: Esta propiedad te permite nombrar áreas específicas de la cuadrícula y organizar los elementos en esas áreas.
+
+```css
+   .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+}
+```
+
+Luego puedes asignar cada área a un elemento de la cuadrícula usando la propiedad `grid-area`.
+
+```css
+   .header {
+    grid-area: header;
+}
+.sidebar {
+    grid-area: sidebar;
+}
+.main {
+    grid-area: main;
+}
+.footer {
+    grid-area: footer;
+}
+```
+
+### Recursos Adicionales
+
+- [Guía de CSS Grid de MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Grid_Layout)
+- [CSS Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [Guía Rápida de CSS Grid de W3Schools](https://www.w3schools.com/css/css_grid.asp)
+- [Grid by Example](https://gridbyexample.com/)
+- [CSS Grid Layout: una guía visual](https://frontendmasters.com/guides/css/grid/)
