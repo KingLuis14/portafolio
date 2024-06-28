@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BlogLayout from "../../layout/BlogLayout.astro";
+import PictureImg from "@/components/PictureImg.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -17,14 +18,15 @@ const { Content , headings} = await entry.render();
 ---
 
 <BlogLayout description={descriptionPage} title={titlePage}>
-  <Content />
+  <Content/>
+  <!-- <PictureImg aspectRatio="Auto" ></PictureImg> -->
   <Fragment slot="mapa">
     <h4 class="color-neutral-000">En esta Página</h4>
     <nav class="navIndice">
       {
         headings.map(({slug, text}) => {
           return (
-              <a href={`#${slug}`} class="navIndice__link">{text}</a>
+              <a href={`#${slug}`} class="navIndice__link fs-small">{text}</a>
           );
         })
       }

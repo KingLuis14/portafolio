@@ -6,6 +6,13 @@
 //     aspect-ratio: 16/9;
 //   }
 
+.aspect-ratio-auto{
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+}
+
+
 .aspect-ratio-video{
     aspect-ratio: 16/9;
 }
